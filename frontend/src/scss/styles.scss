@@ -1,2 +1,21 @@
 @import "_variables";
 @import "_minixins";
+
+*{
+    font-family: $font-normal;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $background;
+}
+
+button{
+    background-color: $minor-details;
+    color: $color-white;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
