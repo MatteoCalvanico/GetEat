@@ -13,7 +13,7 @@
 
     <!-- Login button -->
     <div class="d-flex flex-column align-items-center justify-content-center">
-        <button type="submit">Login</button>
+        <router-link id="btn" to="/home">Login</router-link>
     </div>
 
     <!--Divider-->
