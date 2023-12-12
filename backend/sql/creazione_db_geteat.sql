@@ -1,19 +1,11 @@
--- *********************************************
--- * Standard SQL generation                   
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.2              
--- * Generator date: Sep 14 2021              
--- * Generation date: Tue Dec 12 13:48:17 2023 
--- * LUN file: C:\Users\matte\Desktop\Uni\II Anno\Ingegneria dei Sistemi Web\Progetto Sistemi Web\ERproject.lun 
--- * Schema: DB-GetEat/SQL 
--- ********************************************* 
-
-
 -- Database Section
 -- ________________ 
 
-create database DBGetEat;
+drop database if exists DBGetEat;
 
+create database if not exists DBGetEat;
+
+use DBGetEat;
 
 -- DBSpace Section
 -- _______________
@@ -31,9 +23,9 @@ create table Categoria (
 create table Prodotto (
      ID varchar(50) not null,
      Nome varchar(50) not null,
-     Prezzo float(100) not null,
-     Sconto numeric(100,10),
-     Kcal numeric(5000) not null,
+     Prezzo float not null,
+     Sconto numeric(65,10),
+     Kcal numeric(65) not null,
      Inv_ID varchar(50) not null,
      constraint ID_Prodotto_ID primary key (ID));
 
@@ -59,7 +51,7 @@ create table Utente (
 -- ___________________ 
 
 alter table Prodotto add constraint FKInventario_FK
-     foreign key (Inv_ID)
+     foreign key (Inv_ID) 
      references Categoria;
 
 alter table Ordine add constraint ID_Ordine_CHK
@@ -105,4 +97,3 @@ create index FKMen_Ord_IND
 
 create unique index ID_Utente_IND
      on Utente (ID);
-
