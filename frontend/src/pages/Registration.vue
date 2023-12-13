@@ -1,18 +1,28 @@
 <template>
-    <!-- Email input -->
-    <div class="form-outline mb-4">
-        <input type="email" id="userEmail" placeholder="Indirizzo email" class="form-control form-control-lg" />
-    </div>
 
-    <!-- Password input -->
-    <div class="form-outline mb-4">
-        <input type="password" id="userPsw" placeholder="Password" class="form-control form-control-lg" />
-    </div>
+    <form action="#" method="POST">
+    <!--
+        <div class="form-outline mb-4">
+            <img src="../assets/logo.png"
+            class="img-fluid" alt="GetEat">
+        </div>
+    -->
 
-    <!-- Registration button -->
-    <div class="d-flex flex-column align-items-center justify-content-center">
-        <button type="submit">Registrati</button>
-    </div>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input type="email" id="userEmail" placeholder="Indirizzo email" class="form-control form-control-lg" />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input type="password" id="userPsw" placeholder="Password" class="form-control form-control-lg" />
+        </div>
+
+        <!-- Registration button -->
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <button type="submit">Registrati</button>
+        </div>
+    </form>
 </template>
 
 <style lang="scss">
