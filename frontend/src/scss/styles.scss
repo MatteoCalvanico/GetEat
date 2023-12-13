@@ -5,10 +5,19 @@
     font-family: $font-normal;
 }
 
+h1{
+    font-size: $font-title-size;
+    text-align: $font-title-align;
+}
+
 body{
     margin: 0;
     padding: 0;
     background-color: $background;
+}
+
+.card{
+    border: $card-border;
 }
 
 button,#btn{

@@ -18,6 +18,7 @@ create table Categoria (
      ID varchar(50) not null,
      Nome varchar(50) not null,
      Info varchar(100) not null,
+     Img varchar(100) not null,
      constraint ID_Categoria_ID primary key (ID));
 
 create table Prodotto (
@@ -25,6 +26,7 @@ create table Prodotto (
      Nome varchar(50) not null,
      Prezzo float not null,
      Sconto numeric(65,10),
+     Img varchar(100) not null,
      Kcal numeric(65) not null,
      Inv_ID varchar(50) not null,
      constraint ID_Prodotto_ID primary key (ID));
