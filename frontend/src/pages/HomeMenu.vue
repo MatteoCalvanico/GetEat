@@ -1,14 +1,38 @@
+<script lang="ts">
+    import { defineComponent } from 'vue'
+    import axios from "axios"
+    import { Categoria } from '../types'
+
+    export default defineComponent({
+        data() {
+            return {
+                datiCat: [] as Categoria []
+            }
+        },
+        methods: {
+            getCategorie(){
+                axios.get("/api/categorie").then(response => this.datiCat = response.data)
+            }
+        },
+        mounted() {
+            this.getCategorie()
+        },
+    })
+
+</script>
+
+
 <template>
     <div class="container">
         <h1>Ordina quello che vuoi quando vuoi!</h1>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4" v-for="categoria in datiCat">
                 <div class="card">
-                <img src="https://futureacademy.it/assets/images/fac-simile.png?o=false" class="card-img-top" alt="Immagine della card 1">
+                <img :src="'/img/' + categoria.imgCat" alt="">
                     <div class="card-body">
-                    <h5 class="card-title">Prova</h5>
-                    <p class="card-text">Prova</p>
-                    <a href="#" class="btn btn-primary">Link</a>
+                    <h5 class="card-title">{{categoria.nomeCat}}</h5>
+                    <p class="card-text">{{categoria.infoCat}}</p>
+                    <a href="#" class="btn btn-primary">Ordina</a>
                     </div>
                 </div>
             </div>
