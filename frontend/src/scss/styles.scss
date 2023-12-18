@@ -20,6 +20,10 @@ body{
     border: $card-border;
 }
 
+.card img{
+    size: $card-img-size;
+}
+
 button,#btn{
     background-color: $minor-details;
     color: $color-white;
