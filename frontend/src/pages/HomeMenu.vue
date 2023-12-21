@@ -28,10 +28,10 @@
         <div class="row">
             <div class="col-sm-4" v-for="categoria in datiCat">
                 <div class="card">
-                <img :src="'/img/' + categoria.imgCat" alt="">
+                <img :src="'/img/' + categoria.Img" alt="">
                     <div class="card-body">
-                    <h5 class="card-title">{{categoria.nomeCat}}</h5>
-                    <p class="card-text">{{categoria.infoCat}}</p>
+                    <h5 class="card-title">{{categoria.Nome}}</h5>
+                    <p class="card-text">{{categoria.Info}}</p>
                     <a href="#" class="btn btn-primary">Ordina</a>
                     </div>
                 </div>
