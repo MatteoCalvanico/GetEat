@@ -6,11 +6,6 @@ drop database if exists DBGetEat;
 create database if not exists DBGetEat;
 
 use DBGetEat;
-
--- DBSpace Section
--- _______________
-
-
 -- Tables Section
 -- _____________ 
 
@@ -20,6 +15,12 @@ create table Categoria (
      Info varchar(100) not null,
      Img varchar(100) not null,
      constraint ID_Categoria_ID primary key (ID));
+
+--
+-- Dumping data for table Categoria
+--
+
+INSERT INTO 'dbgeteat', 'categoria' ('ID', 'Nome', 'Info', 'Img') VALUES ('0001', 'Panini', 'Scegli il panino che più ti piace', 'catPanini.jpg')
 
 create table Prodotto (
      ID varchar(50) not null,
