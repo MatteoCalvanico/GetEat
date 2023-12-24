@@ -10,6 +10,7 @@ import Login from "./pages/Login.vue"
 import Registration from "./pages/Registration.vue"
 
 import Home from "./pages/HomeMenu.vue"
+import Prodotto from './pages/Prodotto.vue'
 import NotFound from "./pages/NotFound.vue"
 
 
@@ -19,6 +20,7 @@ const router: Router = createRouter({
         {path: "/", component: Login },
         {path: "/Regitration", component: Registration},
         {path: "/Home", component: Home},
+        {path: "/Prodotto/:ID", component: Prodotto},
         {path: "/:pathMatch(.*)*", component: NotFound }
     ]
 })
