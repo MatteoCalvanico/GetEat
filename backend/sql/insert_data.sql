@@ -15,7 +15,7 @@ INSERT INTO Utente (ID, Permesso, Username, Psw) VALUES
 INSERT INTO Prodotto (IDprod, Nome, Prezzo, Sconto, Img, Kcal, Categoria) VALUES
 ('prod1', 'Panino al formaggio', 10.00, 0.00, 'prodPanino1.jpg', 1125, 'cat1'),
 ('prod2', 'Panino alla porchetta', 15.00, 5.00, 'prodPanino2.jpg', 1500, 'cat1'),
-('prod3', 'Panino alla mortadella', 9.50, 2.00, 'prodPanino3.jpg', 1300, 'cat1'),
+('prod3', 'Hot Dog', 9.50, 2.00, 'prodPanino3.jpg', 1300, 'cat1'),
 ('prod4', 'Torta al cioccolato [Fetta]', 2.45, 0.00, 'prodDolce1.jpg', 550, 'cat2'),
 ('prod5', 'Tiramisù', 5.99, 0.00, 'prodDolce2.jpg', 250, 'cat2'),
 ('prod6', 'Coca-Cola', 1.50, 0.00, 'prodBibita1.jpg', 140, 'cat3'),

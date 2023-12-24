@@ -11,7 +11,7 @@
         },
         methods: {
             getProdotto(){
-                axios.get("/api/prodotto" + this.$route.params.ID).then(response => this.datiProd = response.data[0])
+                axios.get("/api/prodotto/" + this.$route.params.id).then(response => this.datiProd = response.data)
             }
         },
         mounted() {
