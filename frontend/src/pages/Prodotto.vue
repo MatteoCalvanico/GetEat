@@ -33,7 +33,7 @@
                     <h5 class="card-title">{{prodotto.Nome}}</h5>
                     <p class="card-text">{{prodotto.Prezzo}} $</p>
                     <p class="card-text">Calorie totali: {{prodotto.Kcal}}</p>
-                    <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
+                    <a href="#">Aggiungi al carrello</a>
                     </div>
                 </div>
             </div>

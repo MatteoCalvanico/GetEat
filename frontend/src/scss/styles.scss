@@ -36,11 +36,13 @@ body{
     object-fit: cover;
 }
 
-button,#btn{
+button,#btn, .card a{
     background-color: $minor-details;
     color: $color-white;
     border-radius: 20px;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
     display: inline-block;
+    text-decoration: none;
+    
 }

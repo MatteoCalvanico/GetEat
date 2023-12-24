@@ -15,7 +15,9 @@
 
         <!-- Login button -->
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <router-link id="btn" to="/home">Login</router-link>
+            <a>
+                <router-link id="btn" to="/home">Login</router-link>    
+            </a>
         </div>
 
         <!--Divider-->

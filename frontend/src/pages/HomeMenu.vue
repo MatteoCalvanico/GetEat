@@ -32,7 +32,7 @@
                     <div class="card-body">
                     <h5 class="card-title">{{categoria.Nome}}</h5>
                     <p class="card-text">{{categoria.Info}}</p>
-                    <a href="#" class="btn btn-primary"><RouterLink :to="'/Prodotto/' + categoria.IDcat">Ordina</RouterLink></a>
+                    <a><RouterLink :to="'/Prodotto/' + categoria.IDcat">Ordina</RouterLink></a>
                     </div>
                 </div>
             </div>
