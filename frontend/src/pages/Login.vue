@@ -3,13 +3,6 @@
 <template>
 
     <form action="#" method="POST">
-    <!--
-        <div class="form-outline mb-4">
-            <img src="../assets/logo.png"
-            class="img-fluid" alt="GetEat">
-        </div>
-    -->
-
         <!-- Email input -->
         <div class="form-outline mb-4">
             <input type="email" id="userEmail" placeholder="Indirizzo email" class="form-control form-control-lg" />
