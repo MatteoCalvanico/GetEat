@@ -18,6 +18,17 @@ body{
 
 .card{
     border: $card-border;
+    height: 100%;
+}
+
+.card-body{
+    display: flex;
+    height: 50%;
+    flex-direction: column;
+}
+
+.card-text{
+    flex-grow: 1;
 }
 
 .card img{
