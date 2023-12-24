@@ -21,7 +21,8 @@ body{
 }
 
 .card img{
-    size: $card-img-size;
+    height: $card-img-height;
+    object-fit: cover;
 }
 
 button,#btn{
