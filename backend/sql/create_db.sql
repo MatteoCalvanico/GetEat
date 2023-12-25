@@ -28,8 +28,8 @@ CREATE TABLE Prodotto (
 ENGINE = InnoDB;
 
 CREATE TABLE Utente (
-  ID VARCHAR(50) NOT NULL,
-  Permesso VARCHAR(50) NOT NULL,
+  ID INTEGER NOT NULL AUTO_INCREMENT,
+  Permesso ENUM("admin", "user") default "user",
   Username VARCHAR(50) NOT NULL,
   Psw VARCHAR(50) NOT NULL,
   PRIMARY KEY (ID),
@@ -38,8 +38,8 @@ CREATE TABLE Utente (
 ENGINE = InnoDB;
 
 CREATE TABLE Ordine (
-  IDordine varchar(50) NOT NULL,
-  Ordinatario varchar(50) NOT NULL,
+  IDordine INTEGER NOT NULL AUTO_INCREMENT,
+  Ordinatario INTEGER NOT NULL,
   PRIMARY KEY (IDordine),
   UNIQUE INDEX ID_Ordine_IND (IDordine ASC),
   INDEX FKAcquisto_IND (Ordinatario ASC),
@@ -49,7 +49,7 @@ CREATE TABLE Ordine (
 ENGINE = InnoDB;
 
 CREATE TABLE Menu (
-  NumOrdine varchar(50) NOT NULL,
+  NumOrdine INTEGER NOT NULL,
   Prodotto varchar(50) NOT NULL,
   PRIMARY KEY (Prodotto, NumOrdine),
   UNIQUE INDEX ID_Menu_IND (Prodotto, NumOrdine ASC),

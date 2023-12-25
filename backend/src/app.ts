@@ -1,8 +1,8 @@
 import express, { Express } from "express"
+import history from "connect-history-api-fallback"
 
 import catRouter from "./routes/categorie-routers"
 import catProd from "./routes/prodotto-routers"
-import history from "connect-history-api-fallback"
 
 const app: Express = express()
 const port: number = 3000

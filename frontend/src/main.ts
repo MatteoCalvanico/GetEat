@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory, Router } from 'vue-router'
+import { Utente } from './types'
 
 import './scss/styles.scss'
 import 'bootstrap'
@@ -13,11 +14,10 @@ import Home from "./pages/HomeMenu.vue"
 import Prodotto from './pages/Prodotto.vue'
 import NotFound from "./pages/NotFound.vue"
 
-
 const router: Router = createRouter({
     history: createWebHistory(),
     routes: [
-        {path: "/", component: Login },
+        {path: "/", component: Login},
         {path: "/Regitration", component: Registration},
         {path: "/Home", component: Home},
         {path: "/Prodotto/:id", component: Prodotto},
