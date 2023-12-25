@@ -14,3 +14,10 @@ export interface Prodotto {
     Kcal: number
     Categoria: string
 }
+
+export interface Utente {
+    ID: string
+    Permesso: "admin" | "user"
+    Username: string
+    Psw: string
+}
