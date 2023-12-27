@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import App from './App.vue'
 import Login from "./pages/Login.vue"
 import Registration from "./pages/Registration.vue"
+import Carrello from "./pages/Cart.vue"
 
 import Home from "./pages/HomeMenu.vue"
 import Prodotto from './pages/Prodotto.vue'
@@ -21,6 +22,7 @@ const router: Router = createRouter({
         {path: "/Regitration", component: Registration},
         {path: "/Home", component: Home},
         {path: "/Prodotto/:id", component: Prodotto},
+        {path: "/Carrello", component: Carrello},
         {path: "/:pathMatch(.*)*", component: NotFound }
     ]
 })
