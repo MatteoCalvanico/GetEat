@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory, Router } from 'vue-router'
-import { Utente } from './types'
 
 import './scss/styles.scss'
 import 'bootstrap'

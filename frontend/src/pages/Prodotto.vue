@@ -2,12 +2,12 @@
     import { defineComponent } from 'vue'
     import axios from "axios"
     import { Prodotto } from '../types'
+    import { eventBus } from '../event-bus'
 
     export default defineComponent({
         data() {
             return {
-                datiProd: [] as Prodotto [],
-                cart: [] as Prodotto[]
+                datiProd: [] as Prodotto []
             }
         },
         methods: {
@@ -16,8 +16,8 @@
             },
             addItemToCart(index: number) {
                 const prodotto = this.datiProd[index];
-                this.cart.push(prodotto);
-                console.log(this.cart);
+                eventBus.value.dispatchEvent(new CustomEvent('add-to-cart', { detail: prodotto }));
+                console.log("Prodotto aggiunto al carrello:", prodotto);
             }
         },
         mounted() {
@@ -55,5 +55,5 @@
 </template>
 
 <style lang="scss">
-@import "../scss/styles.scss";
+    @import "../scss/styles.scss";
 </style>

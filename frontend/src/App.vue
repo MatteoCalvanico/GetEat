@@ -1,21 +1,52 @@
+<script lang="ts">
+import { defineComponent, onMounted, ref } from 'vue';
+import { RouterView } from 'vue-router';
+import { eventBus } from './event-bus';
+import { Prodotto } from './types';
+
+export default defineComponent({
+  setup() {
+    const cart = ref<Prodotto[]>([]);
+
+    //Aggiunta al carrello
+    const addToCart = (prodotto: Prodotto) => {
+      cart.value.push(prodotto);
+      console.log("Carrello aggiornato:", cart.value);
+    };
+
+    //Event listener per l'aggiunta al carrello
+    onMounted(() => {
+      eventBus.value.addEventListener('add-to-cart', (event: Event) => {
+        const prodotto = (event as CustomEvent).detail as Prodotto;
+        addToCart(prodotto);
+      });
+    });
+
+    return {
+      cart,
+      addToCart,
+    };
+  },
+});
+</script>
+
 <template>
-    <main>
-        <section class="vh-100 d-flex align-items-center justify-content-center">
-            <div class="container py-5 h-100">
-                <div class="row d-flex align-items-center justify-content-center h-100">
-                    <div class="col-md-6 col-lg-6 col-xl-6 offset-xl-1 text-center">
-                        <div class="form-outline mb-4">
-                            <img src="./assets/logo.png"
-                            class="img-fluid" alt="GetEat">
-                        </div>
-                        <RouterView/>
-                    </div>
-                </div>
+  <main>
+    <section class="vh-100 d-flex align-items-center justify-content-center">
+      <div class="container py-5 h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+          <div class="col-md-6 col-lg-6 col-xl-6 offset-xl-1 text-center">
+            <div class="form-outline mb-4">
+              <img src="./assets/logo.png" class="img-fluid" alt="GetEat">
             </div>
-        </section>
-    </main>
+            <RouterView :cart="cart" :addToCart="addToCart" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <style lang="scss">
-@import "./scss/styles.scss";
+    @import "./scss/styles.scss";
 </style>
