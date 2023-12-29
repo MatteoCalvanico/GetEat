@@ -20,6 +20,11 @@ body{
     padding: 20px;
 }
 
+.txtEmptyCart{
+    font-size: $font-p-size;
+    color: $minor-details;
+}
+
 .card{
     border: $card-border;
     height: 100%;
@@ -50,7 +55,7 @@ ul > li > img {
     width: 100px;
     height: auto;
     border-radius: $cart-radius;
-  }
+}
 
 .card-text{
     flex-grow: 1;

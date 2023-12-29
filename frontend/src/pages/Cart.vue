@@ -6,6 +6,13 @@
     props: {
       cart: Array as () => Prodotto[],
     },
+    methods: {
+        delItemFromCart(index: number) {
+            if (this.cart && index >= 0 && index < this.cart.length) {
+                this.cart.splice(index, 1);
+            }
+        }
+    }
   });
 </script>
 
@@ -14,11 +21,12 @@
       <h1>Controlla il tuo carrello!</h1>
         <div class="row">
             <div class="text-center">
+                <p class="txtEmptyCart" v-if="cart?.length === 0">Carrello vuoto</p>
                 <ul>
                     <li v-for="(prodotto, index) in cart" :key="index">
                         <img :src="'/img/' + prodotto.Img" alt="">
                         {{ prodotto.Nome }} - {{ prodotto.Prezzo }}$
-                        <button>Rimuovi</button>
+                        <button @click="delItemFromCart(index)">Rimuovi</button>
                     </li>
                 </ul>
             </div>
