@@ -16,6 +16,10 @@ body{
     background-color: $background;
 }
 
+.btnCart{
+    padding: 20px;
+}
+
 .card{
     border: $card-border;
     height: 100%;
@@ -26,6 +30,27 @@ body{
     height: 50%;
     flex-direction: column;
 }
+
+ul{
+    list-style: $disable;
+    padding: 0%;
+}
+
+li{
+    border: $card-border;
+    border-radius: $cart-radius;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul > li > img {
+    width: 100px;
+    height: auto;
+    border-radius: $cart-radius;
+  }
 
 .card-text{
     flex-grow: 1;
@@ -40,9 +65,9 @@ button,#btn, .card a{
     background-color: $minor-details;
     color: $color-white;
     border-radius: 20px;
-    border: none;
+    border: $disable;
     padding: 10px 10px;
     display: inline-block;
-    text-decoration: none;
+    text-decoration: $disable;
     
 }

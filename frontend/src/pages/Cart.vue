@@ -12,11 +12,17 @@
 <template>
     <div class="container">
       <h1>Controlla il tuo carrello!</h1>
-      <ul>
-        <li v-for="(prodotto, index) in cart" :key="index">
-          {{ prodotto.Nome }} - {{ prodotto.Prezzo }}$
-        </li>
-      </ul>
+        <div class="row">
+            <div class="text-center">
+                <ul>
+                    <li v-for="(prodotto, index) in cart" :key="index">
+                        <img :src="'/img/' + prodotto.Img" alt="">
+                        {{ prodotto.Nome }} - {{ prodotto.Prezzo }}$
+                        <button>Rimuovi</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
   

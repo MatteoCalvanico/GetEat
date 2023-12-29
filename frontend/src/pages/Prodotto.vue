@@ -33,7 +33,7 @@
         <h1>Scegli il tuo prodotto!</h1>
 
         <div class="row">
-            <a>
+            <a class="btnCart">
                 <router-link id="btn" to="/Carrello">Val al carrello</router-link>    
             </a>
         </div>
