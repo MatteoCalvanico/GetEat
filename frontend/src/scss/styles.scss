@@ -20,6 +20,10 @@ body{
     padding: 20px;
 }
 
+.btnSendCart{
+    background-color: $danger-details;
+}
+
 .txtEmptyCart{
     font-size: $font-p-size;
     color: $minor-details;

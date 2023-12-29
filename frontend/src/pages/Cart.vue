@@ -29,6 +29,7 @@
                         <button @click="delItemFromCart(index)">Rimuovi</button>
                     </li>
                 </ul>
+                <button class="btnSendCart" v-if="cart && cart.length > 0">Invia ordine</button>
             </div>
         </div>
     </div>
