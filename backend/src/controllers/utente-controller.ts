@@ -21,8 +21,15 @@ export async function login(req:Request, res: Response) {
           if (Array.isArray(results)) {
             if (results.length > 0) {
                 let user = results[0] as any;
+
+                // controllare il campo admin di user e creare una variabile boolean
+                // user / admin : false / true
+
                 if (auth(user.Psw, password)) {     
-                    res.json({"logged": true});
+                    res.json({
+                        "logged": true, 
+                        "admin": user.Permesso == "admin" ? true : false
+                    });
                 } else {
                     res.send("Password errata");
                 }

@@ -9,7 +9,7 @@ export default {
     return {
       username: '',
       password: '',
-      errorText: null
+      error: ''
     }
   },
   methods: {
@@ -23,13 +23,22 @@ export default {
         const data = response.data;
 
         if (data.logged === true) {
-            window.location.href = 'home';
+            if (data.admin) {
+              window.location.href = 'Admin';
+            } else {
+              window.location.href = 'home';
+            }
         } else {
-            console.log(data);
+          if (data == "Utente non trovato") {
+            this.error = data
+          } else if (data == "Password errata") {
+            this.error = data
+          } else {
+            this.error = data
+          }
         }
       } catch (error: any) {
-        this.errorText = error;
-        console.log(this.errorText);
+        console.log(error);
       }
     }}}
 </script>
@@ -56,7 +65,7 @@ export default {
         </div>
 
         <!-- Error message -->
-        <p v-if="errorText != null" class="text-danger">{{ errorText }}</p>
+        <p v-if="error" class="text-danger">{{ error }}</p>
 
         <!--Divider-->
         <div class="mt-3">
