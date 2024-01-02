@@ -8,7 +8,8 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      errorText: null
     }
   },
   methods: {
@@ -26,8 +27,9 @@ export default {
         } else {
             console.log(data);
         }
-      } catch (error) {
-        console.log(error);
+      } catch (error: any) {
+        this.errorText = error;
+        console.log(this.errorText);
       }
     }}}
 </script>
@@ -52,6 +54,9 @@ export default {
         <div class="d-flex flex-column align-items-center justify-content-center">
             <button type="submit">Login</button>
         </div>
+
+        <!-- Error message -->
+        <p v-if="errorText != null" class="text-danger">{{ errorText }}</p>
 
         <!--Divider-->
         <div class="mt-3">
