@@ -1,23 +1,56 @@
 <!-- Pagina iniziale l'utente o l'amministratore farà il login per poi usare la web app -->
 
+<script lang="ts">
+
+import axios from "axios"
+
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    async submitForm() {
+        try {
+        const response = await axios.post('/api/login', {
+          username: this.username,
+          password: this.password
+        });
+
+        const data = response.data;
+
+        if (data.logged === true) {
+            window.location.href = 'home';
+        } else {
+            console.log(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }}}
+</script>
+
 <template>
 
-    <form action="#" method="POST">
+    <!-- previene il comportamento di default del form e chiama il metodo submitForm -->
+    <form @submit.prevent="submitForm">
         <!-- Email input -->
         <div class="form-outline mb-4">
-            <input type="email" id="userEmail" placeholder="Indirizzo email" class="form-control form-control-lg" />
+            <input type="text" id="username" placeholder="Inserire username" class="form-control form-control-lg"
+            v-model="username" />
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="userPsw" placeholder="Password" class="form-control form-control-lg" />
+            <input type="password" id="password" placeholder="Inserire password" class="form-control form-control-lg"
+            v-model="password" />
         </div>
 
         <!-- Login button -->
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <a>
-                <router-link id="btn" to="/home">Login</router-link>    
-            </a>
+            <button type="submit">Login</button>
         </div>
 
         <!--Divider-->

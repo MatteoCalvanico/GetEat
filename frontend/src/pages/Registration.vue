@@ -1,21 +1,49 @@
+<script lang="ts">
+
+import axios from "axios"
+
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    async submitForm() {
+        try {
+        const response = await axios.post('/api/registration', {
+          username: this.username,
+          password: this.password
+        });
+
+        const data = response.data;
+
+        if (data === 'Utente registrato') {
+            window.location.href = '/';
+        } else {
+            console.log(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }}}
+</script>
+
+
 <template>
 
-    <form action="#" method="POST">
-    <!--
+    <form @submit.prevent="submitForm">
+        
         <div class="form-outline mb-4">
-            <img src="../assets/logo.png"
-            class="img-fluid" alt="GetEat">
-        </div>
-    -->
-
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-            <input type="email" id="userEmail" placeholder="Indirizzo email" class="form-control form-control-lg" />
+            <input type="text" id="username" placeholder="Username" class="form-control form-control-lg"
+            v-model="username" />
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-            <input type="password" id="userPsw" placeholder="Password" class="form-control form-control-lg" />
+            <input type="password" id="userPsw" placeholder="Password" class="form-control form-control-lg"
+            v-model="password" />
         </div>
 
         <!-- Registration button -->
