@@ -21,7 +21,7 @@ export async function login(req:Request, res: Response) {
           if (Array.isArray(results)) {
             if (results.length > 0) {
                 let user = results[0] as any;
-                if (auth(user.Psw, password)) {
+                if (auth(user.Psw, password)) {     
                     res.json({"logged": true});
                 } else {
                     res.send("Password errata");
@@ -36,7 +36,7 @@ export async function login(req:Request, res: Response) {
 }
 
 
-function auth(storedPass: string, userPass: string): boolean {
+function auth(storedPass: string, userPass: string): boolean {  //utilizzo questa funzione per per confrontare le password
 
     if (storedPass === userPass) {
         return true;
