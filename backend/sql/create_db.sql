@@ -31,7 +31,7 @@ CREATE TABLE Utente (
   ID INTEGER NOT NULL AUTO_INCREMENT,
   Permesso ENUM("admin", "user") default "user",
   Username VARCHAR(50) NOT NULL,
-  Psw VARCHAR(50) NOT NULL,
+  Psw VARCHAR(255) NOT NULL,
   PRIMARY KEY (ID),
   UNIQUE INDEX ID_Utente_IND (ID)
 )
