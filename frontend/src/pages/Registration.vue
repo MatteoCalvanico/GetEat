@@ -6,13 +6,17 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
     async submitForm() {
-        try {
-          //fare controllo username pw tramite lenght(>0 vuole dire che c'è al meno un carattere) se c'è al meno un carattere fare tutto normalmente, altrimenti fare come messagio errore di login
+        if (this.username === '' || this.password === '') {
+            this.error = 'Tutti i campi sono obbligatori';
+            return;
+        }
+        try {  
         const response = await axios.post('/api/registration', {
           username: this.username,
           password: this.password
@@ -50,6 +54,7 @@ export default {
         <!-- Registration button -->
         <div class="d-flex flex-column align-items-center justify-content-center">
             <button type="submit">Registrati</button>
+            <p v-if="error" class="text-danger">{{ error }}</p>
         </div>
     </form>
 </template>
