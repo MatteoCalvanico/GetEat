@@ -12,6 +12,7 @@ export default {
   methods: {
     async submitForm() {
         try {
+          //fare controllo username pw tramite lenght(>0 vuole dire che c'è al meno un carattere) se c'è al meno un carattere fare tutto normalmente, altrimenti fare come messagio errore di login
         const response = await axios.post('/api/registration', {
           username: this.username,
           password: this.password
