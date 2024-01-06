@@ -7,9 +7,9 @@ INSERT INTO Categoria (IDcat, Nome, Info, Img) VALUES
 
 -- Utente
 INSERT INTO Utente (Permesso, Username, Psw) VALUES
-('admin', 'admin', 'password'),
-('user', 'utente1', 'password'),
-('user', 'utente2', 'password');
+('admin', 'admin', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta'),
+('user', 'utente1', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta'),
+('user', 'utente2', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta');
 
 -- Prodotto
 INSERT INTO Prodotto (IDprod, Nome, Prezzo, Sconto, Img, Kcal, Categoria) VALUES
