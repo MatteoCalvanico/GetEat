@@ -1,13 +1,12 @@
-
 -- Categoria
 INSERT INTO Categoria (IDcat, Nome, Info, Img) VALUES
 ('cat1', 'Panini', 'Scegli il panino che più ti piace', 'catPanini.jpg'),
 ('cat2', 'Dolci', 'Scegli il dolce che più ti piace', 'catDolci.jpg'),
 ('cat3', 'Bevande', 'Scegli la bevanda che più ti piace', 'catBevande.jpg');
 
--- Utente
-INSERT INTO Utente (Permesso, Username, Psw) VALUES
-('admin', 'admin', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta'),
+-- Utente --All the psw are: 'password'
+INSERT INTO Utente (Permesso, Username, Psw) VALUES 
+('admin', 'admin', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta'), 
 ('user', 'utente1', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta'),
 ('user', 'utente2', '$2b$10$wowXiSqjmNW1iEMMr4DAq.0eKc.K553YUssSbvuoucmfWVuEscwta');
 
@@ -20,3 +19,14 @@ INSERT INTO Prodotto (IDprod, Nome, Prezzo, Sconto, Img, Kcal, Categoria) VALUES
 ('prod5', 'Tiramisù', 5.99, 0.00, 'prodDolce2.jpg', 250, 'cat2'),
 ('prod6', 'Coca-Cola', 1.50, 0.00, 'prodBibita1.jpg', 140, 'cat3'),
 ('prod7', 'Sprite', 1.50, 0.00, 'prodBibita2.jpg', 30, 'cat3');
+
+--Ordine
+INSERT INTO Ordine (IDordine, Ordinatario) VALUES
+(1, 2),
+(2, 3);
+
+--Menu
+INSERT INTO Menu (NumOrdine, Prodotto) VALUES
+(1, 'prod1'),
+(1, 'prod7'),
+(2, 'prod3');
