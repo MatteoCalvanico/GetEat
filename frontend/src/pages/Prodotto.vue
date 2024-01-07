@@ -14,9 +14,9 @@
             getProdotto(){
                 axios.get("/api/prodotto/" + this.$route.params.id).then(response => this.datiProd = response.data)
             },
-            addItemToCart(index: number) {
+            addItemToCart(index: number) { //Funzione per aggiungere il prodotto
                 const prodotto = this.datiProd[index];
-                eventBus.value.dispatchEvent(new CustomEvent('add-to-cart', { detail: prodotto }));
+                eventBus.value.dispatchEvent(new CustomEvent('add-to-cart', { detail: prodotto })); //Utilizziamo l'event bus per inviare il carrello poi nel componente App.vue lo riceviamo, tipo """observer""" di java
                 console.log("Prodotto aggiunto al carrello:", prodotto);
             }
         },

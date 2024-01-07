@@ -6,7 +6,7 @@ import { Prodotto } from './types';
 
 export default defineComponent({
   setup() {
-    const cart = ref<Prodotto[]>([]);
+    const cart = ref<Prodotto[]>([]); //Usando ref teniamo traccia dello stato del carrello
 
     //Aggiunta al carrello
     const addToCart = (prodotto: Prodotto) => {
@@ -16,7 +16,7 @@ export default defineComponent({
 
     //Event listener per l'aggiunta al carrello
     onMounted(() => {
-      eventBus.value.addEventListener('add-to-cart', (event: Event) => {
+      eventBus.value.addEventListener('add-to-cart', (event: Event) => { //Appena verrà aggiunto un elemento aggiorniamo il carrello
         const prodotto = (event as CustomEvent).detail as Prodotto;
         addToCart(prodotto);
       });
@@ -39,7 +39,7 @@ export default defineComponent({
             <div class="form-outline mb-4">
               <img src="./assets/logo.png" class="img-fluid" alt="GetEat">
             </div>
-            <RouterView :cart="cart" :addToCart="addToCart" />
+            <RouterView :cart="cart" :addToCart="addToCart"/> <!--Passiamo il carrello e la funzione per usarlo ai componenti che lo userannò-->
           </div>
         </div>
       </div>
