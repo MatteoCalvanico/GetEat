@@ -10,8 +10,12 @@ export default defineComponent({
 
     //Aggiunta al carrello
     const addToCart = (prodotto: Prodotto) => {
-      cart.value.push(prodotto);
-      console.log("Carrello aggiornato:", cart.value);
+      if(!cart.value.find(itemCart => itemCart.IDprod === prodotto.IDprod)){ //Cerchiamo dentro al cart se c'è un elemento uguale a quello appena passato
+        cart.value.push(prodotto);
+        console.log("Carrello aggiornato:", cart.value);
+      }else{
+        console.log("Prodotto già presente");
+      }
     };
 
     //Event listener per l'aggiunta al carrello
