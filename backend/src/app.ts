@@ -5,6 +5,7 @@ import bodyParser from "body-parser"
 import catRouter from "./routes/categorie-routers"
 import prodRouter from "./routes/prodotto-routers"
 import utenteRouter from "./routes/utente-routers"
+import OrdineRouter from "./routes/ordine-routers"
 
 const app: Express = express()
 const port: number = 3000
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 app.use(catRouter);
 app.use(prodRouter);
 app.use(utenteRouter);
+app.use(OrdineRouter);
 
 
 app.use(function(req, res, next) {

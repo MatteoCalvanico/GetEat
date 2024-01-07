@@ -15,7 +15,12 @@ export interface Prodotto {
     Categoria: string
 }
 
-//New part
+export interface Ordine {
+    IDordine: number
+    NomeOrdinatario: string
+    NomeProdotto: string
+}
+
 export interface Utente {
     ID: string
     Permesso: "admin" | "user"
