@@ -1,7 +1,6 @@
 import { Request, Response } from "express"
 import { connection } from "../utils/db"
 import * as bcrypt from 'bcrypt'
-import { decodeAccessToken } from "../utils/auth"
 
 const saltRounds = 10
 const password = "Admin@123"
@@ -68,12 +67,6 @@ export async function registration(req:Request, res:Response) {
       )
     })
   .catch(err => console.error(err.message))
-}
-
-// Decodifica il contenuto dell'access token, che contiene il dati dell'utente, e lo invia in risposta
-export const getProfile = async (req: Request, res: Response) => {
-  const user = decodeAccessToken(req, res)
-  res.json(user)
 }
 
 //Utilizzo questa funzione per per confrontare le password

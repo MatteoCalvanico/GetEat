@@ -6,9 +6,13 @@ import catRouter from "./routes/categorie-routers"
 import prodRouter from "./routes/prodotto-routers"
 import utenteRouter from "./routes/utente-routers"
 import OrdineRouter from "./routes/ordine-routers"
+import cookieParser from "cookie-parser"
 
 const app: Express = express()
 const port: number = 3000
+
+app.use(bodyParser.json())
+app.use(cookieParser())
 
 app.use(history())
 app.use(express.static("public"))
