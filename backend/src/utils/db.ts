@@ -4,5 +4,6 @@ export const connection: Connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'dbgeteat'
+    database: 'dbgeteat',
+    multipleStatements: true
 })

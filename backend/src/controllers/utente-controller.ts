@@ -32,7 +32,8 @@ export async function login(req:Request, res: Response) {
                 const isAuthenticated = await auth(user.Psw, password);
                         if (isAuthenticated) {
                             res.json({
-                                "logged": true, 
+                                "logged": true,
+                                "id":user.ID, 
                                 "admin": user.Permesso == "admin" ? true : false
                             });
                         } else {

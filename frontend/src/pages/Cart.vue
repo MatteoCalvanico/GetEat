@@ -1,6 +1,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { Prodotto } from '../types';
+import axios from 'axios';
   
   export default defineComponent({
     props: {
@@ -10,6 +11,16 @@
         delItemFromCart(index: number) {
             if (this.cart && index >= 0 && index < this.cart.length) {
                 this.cart.splice(index, 1);
+            }
+        },
+        async checkout() {
+            if (this.cart && this.cart.length > 0) {
+                await axios.post('/api/checkout', {
+                    ordinatario: sessionStorage.getItem("id"),
+                    cart: this.cart,
+                });
+            }else{
+                console.log("Cart vuoto")
             }
         }
     }
@@ -29,7 +40,7 @@
                         <button @click="delItemFromCart(index)">Rimuovi</button>
                     </li>
                 </ul>
-                <button class="btnSendCart" v-if="cart && cart.length > 0">Invia ordine</button>
+                <button class="btnSendCart" v-if="cart && cart.length > 0" @click="checkout">Invia ordine</button>
             </div>
         </div>
     </div>

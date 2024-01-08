@@ -23,6 +23,7 @@ export default {
         const data = response.data;
 
         if (data.logged === true) {
+          sessionStorage.setItem("id", data.id)
             if (data.admin) {
               window.location.href = 'Admin';
             } else {
