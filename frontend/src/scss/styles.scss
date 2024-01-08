@@ -32,6 +32,21 @@ body{
 .card{
     border: $card-border;
     height: 100%;
+
+    img{
+        height: $card-img-height;
+        object-fit: cover;
+    }
+
+    a{
+        background-color: $minor-details;
+        color: $color-white;
+        border-radius: 20px;
+        border: $disable;
+        padding: 10px 10px;
+        display: inline-block;
+        text-decoration: $disable;
+    }
 }
 
 .card-body{
@@ -43,34 +58,29 @@ body{
 ul{
     list-style: $disable;
     padding: 0%;
-}
 
-li{
-    border: $card-border;
-    border-radius: $cart-radius;
-    margin-bottom: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    li{
+        border: $card-border;
+        border-radius: $cart-radius;
+        margin-bottom: 20px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-ul > li > img {
-    width: 100px;
-    height: auto;
-    border-radius: $cart-radius;
+        img{
+            width: 100px;
+            height: auto;
+            border-radius: $cart-radius;
+        }
+    }
 }
 
 .card-text{
     flex-grow: 1;
 }
 
-.card img{
-    height: $card-img-height;
-    object-fit: cover;
-}
-
-button,#btn, .card a{
+button,#btn{
     background-color: $minor-details;
     color: $color-white;
     border-radius: 20px;
@@ -78,5 +88,4 @@ button,#btn, .card a{
     padding: 10px 10px;
     display: inline-block;
     text-decoration: $disable;
-    
 }
