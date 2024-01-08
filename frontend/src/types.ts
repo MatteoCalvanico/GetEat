@@ -20,10 +20,3 @@ export interface Ordine {
     NomeOrdinatario: string
     NomeProdotto: string
 }
-
-export interface Utente {
-    ID: string
-    Permesso: "admin" | "user"
-    Username: string
-    Psw: string
-}

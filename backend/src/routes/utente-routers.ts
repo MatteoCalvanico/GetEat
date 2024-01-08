@@ -1,10 +1,11 @@
 import { Router } from "express"
 import * as utenteController from "../controllers/utente-controller"
 
-const router: Router = Router()     //creo una istanza della classe Router
+const router: Router = Router() //Creo una istanza della classe Router
 
 router.post("/api/login", utenteController.login)
 router.post("/api/registration", utenteController.registration)
+router.get("/api/auth/profile", utenteController.getProfile)
 
 export default router
 
