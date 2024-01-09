@@ -53,8 +53,8 @@ export default {
 
         <!-- Registration button -->
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <button type="submit">Registrati</button>
-            <p v-if="error" class="text-danger">{{ error }}</p>
+          <p v-if="error" class="text-danger">{{ error }}</p>  
+          <button type="submit">Registrati</button>
         </div>
     </form>
 </template>
