@@ -29,9 +29,9 @@
     <div class="container">
         <h1>Ordina quello che vuoi quando vuoi!</h1>
         <div class="row">
-            <div class="col-sm-4" v-for="categoria in datiCat">
+            <div id="card" class="col-sm-4" v-for="categoria in datiCat">
                 <div class="card">
-                <img :src="'/img/' + categoria.Img" alt="">
+                    <img :src="'/img/' + categoria.Img" alt="">
                     <div class="card-body">
                     <h5 class="card-title">{{categoria.Nome}}</h5>
                     <p class="card-text">{{categoria.Info}}</p>

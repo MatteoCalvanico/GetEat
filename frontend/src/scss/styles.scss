@@ -17,7 +17,7 @@ body{
 }
 
 .btnCart{
-    padding: 20px;
+    padding: ($standard-distance*2);
 }
 
 .btnSendCart, .btnLogout{
@@ -27,6 +27,11 @@ body{
 .txtEmptyCart{
     font-size: $font-p-size;
     color: $minor-details;
+}
+
+#card{
+    margin-top: $standard-distance;
+    margin-bottom: $standard-distance;
 }
 
 .card{
@@ -41,9 +46,9 @@ body{
     a{
         background-color: $minor-details;
         color: $color-white;
-        border-radius: 20px;
+        border-radius: ($standard-distance*2);
         border: $disable;
-        padding: 10px 10px;
+        padding: $standard-distance $standard-distance;
         display: inline-block;
         text-decoration: $disable;
     }
@@ -62,11 +67,12 @@ ul{
     li{
         border: $card-border;
         border-radius: $cart-radius;
-        margin-bottom: 20px;
-        padding: 20px;
+        margin-bottom: ($standard-distance*2);
+        padding: ($standard-distance*2);
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background-color: $color-wheat;
 
         img{
             width: 100px;
@@ -83,9 +89,9 @@ ul{
 button,#btn{
     background-color: $minor-details;
     color: $color-white;
-    border-radius: 20px;
+    border-radius: ($standard-distance*2);
     border: $disable;
-    padding: 10px 10px;
+    padding: $standard-distance $standard-distance;
     display: inline-block;
     text-decoration: $disable;
 }

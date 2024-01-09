@@ -39,9 +39,9 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-4" v-for="(prodotto, index) in datiProd" :key="prodotto.IDprod">
+            <div id="card" class="col-sm-4" v-for="(prodotto, index) in datiProd" :key="prodotto.IDprod">
                 <div class="card">
-                <img :src="'/img/' + prodotto.Img" alt="">
+                    <img :src="'/img/' + prodotto.Img" alt="">
                     <div class="card-body">
                     <h5 class="card-title">{{prodotto.Nome}}</h5>
                     <p class="card-text">{{prodotto.Prezzo}} $</p>

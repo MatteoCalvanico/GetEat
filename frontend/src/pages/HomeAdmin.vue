@@ -38,12 +38,12 @@ export default defineComponent({
     <h1>Pagina Admin</h1>
     <div class="row">
       <div class="text-center">
-        <ul>
+        <ul class="txtOrdini">
           <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine">
             ID: {{ ordGroup[0].IDordine }}
             <ul>
               <li v-for="ordine in ordGroup" :key="ordine.IDordine">
-                - Prodotto: {{ ordine.NomeProdotto }}
+                {{ ordine.NomeProdotto }}
               </li>
             </ul>
           </li>
