@@ -24,6 +24,7 @@ export default {
 
         if (data.logged === true) {
           sessionStorage.setItem("id", data.id)
+          sessionStorage.setItem("logged", "true")
             if (data.admin) {
               window.location.href = 'Admin';
             } else {

@@ -21,12 +21,28 @@ const router: Router = createRouter({
     routes: [
         {path: "/", component: Login},
         {path: "/Regitration", component: Registration},
-        {path: "/Home", component: Home},
-        {path: "/Admin", component: HomeAdmin},
-        {path: "/Prodotto/:id", component: Prodotto},
-        {path: "/Carrello", component: Carrello},
+        {path: "/Home", component: Home, meta: {requireLogin: true}},
+        {path: "/Admin", component: HomeAdmin, meta: {requireLogin: true}},
+        {path: "/Prodotto/:id", component: Prodotto, meta: {requireLogin: true}},
+        {path: "/Carrello", component: Carrello, meta: {requireLogin: true}},
         {path: "/:pathMatch(.*)*", component: NotFound }
     ]
+})
+
+router.beforeEach((to,from,next)=>{
+    if(to.matched.some(record => record.meta.requireLogin)){
+        const logged = sessionStorage.getItem('logged')
+        if(logged)
+        {
+            var isUserLog = JSON.parse(logged)
+            if(isUserLog === 'true'){
+                next('/Home')
+            }
+        }else{
+            next('/')
+        }
+    }
+    next()
 })
 
 createApp(App).use(router).mount('#app')
