@@ -30,22 +30,27 @@ export async function checkout(req: Request, res: Response) {
             return res.status(400).json({ error: "Il corpo della richiesta è incompleto." });
         }
 
-        var allSQL = "INSERT INTO Ordine (IDordine, Ordinatario) VALUES (?, ?); "
+        var allSQL = "INSERT INTO Ordine (IDordine, Ordinatario) VALUES (?, ?); ";
+        for (var prod of cart) {
+            allSQL += "INSERT INTO Menu (NumOrdine, Prodotto) VALUES (?, ?); ";
+        }
 
-        for(var prod of cart){
-            allSQL = allSQL + "INSERT INTO Menu (NumOrdine, Prodotto) VALUES (" + IDordine + ", " + prod.IDprod + "); "
+        var values = [IDordine, ordinatario];
+        for (var prod of cart) {
+            values.push(IDordine, prod.IDprod);
         }
 
         connection.query(
-            allSQL,[IDordine, ordinatario],
-            function(err, result, fields){
-                if(err){
-                    res.send('Query non andata a buon fine, errore:' + err);
-                }else{
+            allSQL, values,
+            function (err, result, fields) {
+                if (err) {
+                    res.status(500).json({ error: 'Query non andata a buon fine, errore:' + err });
+                } else {
                     res.status(200).json({ message: "Ordine registrato con successo!" });
                 }
             }
         );
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Errore durante l'elaborazione dell'ordine." });
