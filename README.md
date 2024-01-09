@@ -16,7 +16,7 @@
 > 4. In entrambi fare: *npm i* (scarichiamo le dipendenze) e poi *npm run dev*;
 
 ## Come funziona:
-> Appena aperto il sito sarà possibile fare il login o registrarsi, finchè non si avrà un account non si potrà entrare nel sito. 
+> Appena si aprirà il sito sarà possibile fare il login o registrarsi, finchè non si avrà un account non si potrà entrare nel sito. 
 >
 > Con un account admin si potrà accedere alla pagine del gestore dove sarà possibile vedere tutti gli ordini effettuati.
 > Con un account user sarà possibile visualizzare il menù e ordinare (non è possibile prendere più volte lo stesso prodotto), andando nel carrello sarà possibile fare il checkout.
