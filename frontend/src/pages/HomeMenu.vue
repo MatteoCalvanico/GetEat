@@ -12,6 +12,9 @@
         methods: {
             getCategorie(){
                 axios.get("/api/categorie").then(response => this.datiCat = response.data)
+            },
+            logout(){
+                sessionStorage.clear()
             }
         },
         mounted() {
@@ -37,6 +40,7 @@
                 </div>
             </div>
         </div>
+        <button class="btnLogout" @click="logout"><RouterLink style="text-decoration: none; color: white;" :to="'/'">Logout</RouterLink></button>
     </div>
 </template>
 
