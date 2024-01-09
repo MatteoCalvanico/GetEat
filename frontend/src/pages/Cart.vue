@@ -15,7 +15,7 @@
         },
         async checkout() {
             if (this.cart && this.cart.length > 0) {
-                await axios.post('/api/checkout', {
+                await axios.post("/api/checkout", {
                     ordinatario: sessionStorage.getItem("id"),
                     cart: this.cart,
                 });
