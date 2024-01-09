@@ -38,7 +38,7 @@ CREATE TABLE Utente (
 ENGINE = InnoDB;
 
 CREATE TABLE Ordine (
-  IDordine INTEGER NOT NULL AUTO_INCREMENT,
+  IDordine varchar(255) NOT NULL,
   Ordinatario INTEGER NOT NULL,
   PRIMARY KEY (IDordine),
   UNIQUE INDEX ID_Ordine_IND (IDordine ASC),
@@ -49,7 +49,7 @@ CREATE TABLE Ordine (
 ENGINE = InnoDB;
 
 CREATE TABLE Menu (
-  NumOrdine INTEGER NOT NULL,
+  NumOrdine varchar(255) NOT NULL,
   Prodotto varchar(50) NOT NULL,
   PRIMARY KEY (Prodotto, NumOrdine),
   UNIQUE INDEX ID_Menu_IND (Prodotto, NumOrdine ASC),

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { Prodotto } from '../types';
-import axios from 'axios';
+  import axios from 'axios';
   
   export default defineComponent({
     props: {

@@ -17,16 +17,16 @@ INSERT INTO Prodotto (IDprod, Nome, Prezzo, Sconto, Img, Kcal, Categoria) VALUES
 ('prod3', 'Hot Dog', 9.50, 2.00, 'prodPanino3.jpg', 1300, 'cat1'),
 ('prod4', 'Torta al cioccolato [Fetta]', 2.45, 0.00, 'prodDolce1.jpg', 550, 'cat2'),
 ('prod5', 'Tiramisù', 5.99, 0.00, 'prodDolce2.jpg', 250, 'cat2'),
-('prod6', 'Coca-Cola', 1.50, 0.00, 'prodBibita1.jpg', 140, 'cat3'),
+('prod6', 'Coca-Cola', 1.50, 0.00, 'prodBibita1.png', 140, 'cat3'),
 ('prod7', 'Sprite', 1.50, 0.00, 'prodBibita2.jpg', 30, 'cat3');
 
---Ordine
+-- Ordine
 INSERT INTO Ordine (IDordine, Ordinatario) VALUES
-(1, 2),
-(2, 3);
+("1a", 2),
+("1b", 3);
 
---Menu
+-- Menu
 INSERT INTO Menu (NumOrdine, Prodotto) VALUES
-(1, 'prod1'),
-(1, 'prod7'),
-(2, 'prod3');
+("1a", 'prod1'),
+("1a", 'prod7'),
+("1b", 'prod3');
