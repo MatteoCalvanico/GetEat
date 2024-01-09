@@ -19,6 +19,7 @@
                     ordinatario: sessionStorage.getItem("id"),
                     cart: this.cart,
                 });
+                location.reload()
             }else{
                 console.log("Cart vuoto")
             }
