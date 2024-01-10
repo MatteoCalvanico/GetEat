@@ -15,12 +15,7 @@ export async function allOrder(req:Request, res:Response) {
     )
 }
 
-/*Idea per checkout: 
-- per l'ID di ordine usare la libreria uuid (import { v4 as uuidv4 } from 'uuid'; e entity.id = uuidv4();)
-- salvare le query in variabili e usare come esempio questo link: https://stackoverflow.com/questions/23266854/node-mysql-multiple-statements-in-one-query (esempio corretto sotto)
-- per le query dei vari prodotti fare un ciclo
-*/
-
+//Per l'implementazione del checkout facciamo un ciclo che aggiunge INSERT per quanti prodotti abbiamo nel carrello
 export async function checkout(req: Request, res: Response) {
     try {
         const { ordinatario, cart } = req.body;
