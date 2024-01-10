@@ -28,10 +28,14 @@
 #### Matteo Calvanico
 > Per quanto riguarda il backend mi sono occupato dei vari controller/router per prendere le categorie e i prodotti dove ho usato la classica implementazione che abbiamo anche in laboratorio. Per quanto riguarda la parte di checkout ho utilizzato la libreria uuid per creare un ID univoco per ogni ordine e, dato che l'unico modo per permettere allo stesso utente di fare un ordine con più prodotti diversi era reificare, ho deciso di usare un ciclo che crea un'unica stringa con tante INSERT quanti sono i prodotti da inserire nella tabella Menu.
 >
+>
 > Il carrello è gestito tramite bus degli eventi, ho deciso ti intraprendere questa strada dopo aver riscontrato degli errori con la libreria Vuex.
 > Per creare l'event bus utilizzo 'EventTarget' in modo da comunicare fra i componenti.
+>
 > Dentro Prodotto.vue c'è il metodo vero e proprio per l'aggiunta del carrello, che invia un evento personalizzato attraverso l'event bus con tutti i dati del prodotto.
+>
 > Nell'App.vue c'è la parte centrale, è presente un listener che aspetta l'evento personalizzato e all'arrivo atraverso un metodo salva effettivamente il prodotto nel carrello.
+>
 > Infine nel componente Cart.vue viene ricevuto il carrello come prop e utilizzerà i metodi specifici per togliere un elemento da esso o per effettuare il checkout (tramite API POST dove il funzionamento è stato spiegato all'inizio).
 
 #### FIlippo Monti
