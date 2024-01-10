@@ -21,11 +21,10 @@
 > Con un account admin si potrà accedere alla pagine del gestore dove sarà possibile vedere tutti gli ordini effettuati.
 > Con un account user sarà possibile visualizzare il menù e ordinare (non è possibile prendere più volte lo stesso prodotto), andando nel carrello sarà possibile fare il checkout.
 
-### Figma flowchart
+## Figma flowchart
 > [Here](https://www.figma.com/file/i8ZRa156lHmqLOhIk2BJvT/Sistemi-web-flowchart?type=design&node-id=0-1&mode=design&t=pqyIdV3V6tqmwVWS-0)
 
-
-### Progettazione
+## Progettazione:
 #### Matteo Calvanico
 > Per quanto riguarda il backend mi sono occupato dei vari controller/router per prendere le categorie e i prodotti dove ho usato la classica implementazione che abbiamo anche in laboratorio. Per quanto riguarda la parte di checkout ho utilizzato la libreria uuid per creare un ID univoco per ogni ordine e, dato che l'unico modo per permettere allo stesso utente di fare un ordine con più prodotti diversi era reificare, ho deciso di usare un ciclo che crea un'unica stringa con tante INSERT quanti sono i prodotti da inserire nella tabella Menu.
 >
@@ -41,7 +40,7 @@
 > Più nel dettaglio la funzione login() gestisce l'autenticazione degli utenti, riceve due parametri username e password provenienti dal corpo della richiesta HTTP. Se l'utente esiste nel database e la password fornita corrisponde a quella salvata nel database, l'utente viene autenticato e l'applicazione invia un oggetto JSON contenente le informazioni dell'utente, tra cui l'ID, l'indicazione se è un amministratore e l'indicazione che l'utente è effettivamente loggato. In caso contrario, l'applicazione invia un messaggio di errore appropriato.
 >
 >La funzione registration() gestisce la registrazione degli utenti. Anche in questo caso, la funzione riceve due parametri, username e password, provenienti dal corpo della richiesta HTTP. La funzione converte la password in un hash utilizzando l'algoritmo bcrypt. Successivamente, la funzione inserisce l'utente nel database, incluso il suo ID, il nome utente, il tipo di permesso e la password hash. Se la registrazione ha esito positivo, l'applicazione invia un messaggio di successo. Altrimenti, l'applicazione invia un messaggio di errore appropriato.
-
+>
 >Inoltre, si è utilizzato una funzione auth() per comparare la password hash con quella inserita dall'utente nel login.
 
 #### Insieme
