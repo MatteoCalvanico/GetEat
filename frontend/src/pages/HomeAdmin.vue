@@ -16,7 +16,7 @@ export default defineComponent({
       });
     },
     groupByOrderID(ordini: Ordine[]){
-      const OrdGroupBy: Record<number, Ordine[]> = {}; //Utilizzando un Record, funziona come una 'map' ma meno complicata da usare, che ci permette di organizzare per bene tutti gli ordini con la stessa chiave
+      const OrdGroupBy: Record<string, Ordine[]> = {}; //Utilizzando un Record, funziona come una 'map' ma meno complicata da usare, che ci permette di organizzare per bene tutti gli ordini con la stessa chiave
       ordini.forEach((ordine) => {
         const key = ordine.IDordine;
         if (!OrdGroupBy[key]) { //Se la chiave non è ancora presente nella lista la aggiungiamo
@@ -26,6 +26,9 @@ export default defineComponent({
       });
       return Object.values(OrdGroupBy); //Ritorniamo un array di ordini (v-for non funziona altrimento)
     },
+    logout(){
+      sessionStorage.clear()
+    }
   },
   mounted() {
     this.getOrdini();
@@ -36,6 +39,7 @@ export default defineComponent({
 <template>
   <div class="container">
     <h1>Pagina Admin</h1>
+    <button class="btnLogout" @click="logout"><RouterLink style="text-decoration: none; color: white;" :to="'/'">Logout</RouterLink></button>
     <div class="row">
       <div class="text-center">
         <ul class="txtOrdini">

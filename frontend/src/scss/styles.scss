@@ -22,6 +22,8 @@ body{
 
 .btnSendCart, .btnLogout{
     background-color: $danger-details;
+    margin-top: $standard-distance;
+    margin-bottom: $standard-distance;
 }
 
 .txtEmptyCart{
