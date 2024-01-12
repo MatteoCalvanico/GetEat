@@ -34,7 +34,7 @@
 >
 > Dentro Prodotto.vue c'è il metodo vero e proprio per l'aggiunta del carrello, che invia un evento personalizzato attraverso l'event bus con tutti i dati del prodotto.
 >
-> Nell'App.vue c'è la parte centrale, è presente un listener che aspetta l'evento personalizzato e all'arrivo atraverso un metodo salva effettivamente il prodotto nel carrello.
+> Nell'App.vue c'è la parte centrale, è presente un listener che aspetta l'evento personalizzato e all'arrivo atraverso un metodo salva effettivamente il prodotto nel carrello. In questo componente ho deciso di usare le Composition API, con la nuova funzione setup() e onMounted utile per registrare l'eventListener appena il componente viene montato.
 >
 > Infine nel componente Cart.vue viene ricevuto il carrello come prop e utilizzerà i metodi specifici per togliere un elemento da esso o per effettuare il checkout (tramite API POST dove il funzionamento è stato spiegato all'inizio).
 
