@@ -43,7 +43,7 @@ export default defineComponent({
             <div class="form-outline mb-4">
               <img src="./assets/logo.png" class="img-fluid" alt="GetEat">
             </div>
-            <RouterView :cart="cart" :addToCart="addToCart"/> <!--Passiamo il carrello e la funzione per usarlo ai componenti che lo userannò-->
+            <RouterView :cart="cart"/> <!--Passiamo il carrello e la funzione per usarlo ai componenti che lo userannò-->
           </div>
         </div>
       </div>
