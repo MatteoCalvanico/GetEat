@@ -3,9 +3,8 @@ import { connection } from "../utils/db"
 import * as bcrypt from 'bcrypt'
 
 const saltRounds = 10
-const password = "Admin@123"
 
-//Definisco le funzioni login e registration
+//Definisco la funzione login
 export async function login(req:Request, res: Response) {
     
   const {username, password} = req.body;
@@ -43,6 +42,7 @@ export async function login(req:Request, res: Response) {
   )
 }
 
+//Definisco la funzione registration
 export async function registration(req:Request, res:Response) {
   const {username, password} = req.body;
 

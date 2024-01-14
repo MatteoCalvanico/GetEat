@@ -29,7 +29,7 @@ const router: Router = createRouter({
     ]
 })
 
-router.beforeEach((to,from,next)=>{
+router.beforeEach((to,_from,next)=>{
     if(to.matched.some(record => record.meta.requireLogin)){
         const logged = sessionStorage.getItem('logged')
         if(logged)
