@@ -8,19 +8,32 @@
     export default defineComponent({
         data() {
             return {
-                datiProd: [] as Prodotto []
+                datiProd: [] as Prodotto [],
+                esauritoMap: {} as Record<string, boolean> //Tiene traccia di quali prodotti sono già stati messi nel carrello (usiamo il sessioStorage per tenere in dati anche al cambio di componente)
             }
         },components:{
             Arrow
         },
         methods: {
             getProdotto(){
-                axios.get("/api/prodotto/" + this.$route.params.id).then(response => this.datiProd = response.data)
+                axios.get("/api/prodotto/" + this.$route.params.id).then(response => {
+                this.datiProd = response.data;
+                this.initializeEsauritoMap();
+            });
+            },        
+            initializeEsauritoMap() {
+                const newEsauritoMap: Record<string, boolean> = {};
+                this.datiProd.forEach(prodotto => { newEsauritoMap[prodotto.IDprod] = sessionStorage.getItem(`esaurito_${prodotto.IDprod}`) === 'true'; });
+                this.esauritoMap = newEsauritoMap;
             },
             addItemToCart(index: number) { //Funzione per aggiungere il prodotto
                 const prodotto = this.datiProd[index];
-                eventBus.value.dispatchEvent(new CustomEvent('add-to-cart', { detail: prodotto })); //Utilizziamo l'event bus per inviare il carrello poi nel componente App.vue lo riceviamo, tipo """observer""" di java
-                console.log("Prodotto aggiunto al carrello:", prodotto);
+                if (!this.esauritoMap[prodotto.IDprod]) {
+                    eventBus.value.dispatchEvent(new CustomEvent('add-to-cart', { detail: prodotto }));
+                    
+                    this.esauritoMap[prodotto.IDprod] = true;                      //Segna il prodotto come esaurito dopo essere stato aggiunto al carrello
+                    sessionStorage.setItem(`esaurito_${prodotto.IDprod}`, 'true'); //Salva nello stato sessionStorage
+                }
             }
         },
         mounted() {
@@ -49,7 +62,9 @@
                     <h5 class="card-title">{{prodotto.Nome}}</h5>
                     <p class="card-text">{{prodotto.Prezzo}} $</p>
                     <p class="card-text">Calorie totali: {{prodotto.Kcal}}</p>
-                    <button @click="addItemToCart(index)">Aggiungi al carrello</button>
+                    <button @click="addItemToCart(index)" :disabled="esauritoMap[prodotto.IDprod]" :style="{ backgroundColor: esauritoMap[prodotto.IDprod] ? '#CCCCCC' : '#minor-details' }"> 
+                        {{ esauritoMap[prodotto.IDprod] ? 'Esaurito' : 'Aggiungi al carrello' }} 
+                    </button>
                     </div>
                 </div>
             </div>
