@@ -2,10 +2,11 @@
   import { defineComponent } from 'vue';
   import { Prodotto } from '../types';
   import axios from 'axios';
+import Arrow from '../component/Arrow.vue';
   
   export default defineComponent({
     props: {
-      cart: Array as () => Prodotto[],
+        cart: Array as () => Prodotto[],
     },
     methods: {
         delItemFromCart(index: number) {
@@ -19,13 +20,15 @@
                     ordinatario: sessionStorage.getItem("id"),
                     cart: this.cart,
                 });
-                location.reload()
-            }else{
-                console.log("Cart vuoto")
+                location.reload();
+            }
+            else {
+                console.log("Cart vuoto");
             }
         }
-    }
-  });
+    },
+    components: { Arrow }
+});
 </script>
 
 <template>
@@ -44,6 +47,7 @@
                 <button class="btnSendCart" v-if="cart && cart.length > 0" @click="checkout">Invia ordine</button>
             </div>
         </div>
+        <Arrow/>
     </div>
 </template>
   

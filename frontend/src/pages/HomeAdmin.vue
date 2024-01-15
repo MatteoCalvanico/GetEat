@@ -2,12 +2,15 @@
 import { defineComponent } from 'vue';
 import axios from 'axios';
 import { Ordine } from '../types';
+import Arrow from '../component/Arrow.vue';
 
 export default defineComponent({
   data() {
     return {
       datiOrdini: [] as Ordine[][],
     };
+  },components:{
+    Arrow
   },
   methods: {
     getOrdini() {
@@ -25,9 +28,6 @@ export default defineComponent({
         OrdGroupBy[key].push(ordine); //Assocciamo l'ordine attuale alla chiave giusta
       });
       return Object.values(OrdGroupBy); //Ritorniamo un array di ordini (v-for non funziona altrimento)
-    },
-    logout(){
-      sessionStorage.clear()
     }
   },
   mounted() {
@@ -39,7 +39,7 @@ export default defineComponent({
 <template>
   <div class="container">
     <h1>Pagina Admin</h1>
-    <button class="btnLogout" @click="logout"><RouterLink style="text-decoration: none; color: white;" :to="'/'">Logout</RouterLink></button>
+    <Arrow/>
     <div class="row">
       <div class="text-center">
         <ul class="txtOrdini">

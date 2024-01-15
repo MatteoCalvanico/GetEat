@@ -3,12 +3,15 @@
     import axios from "axios"
     import { Prodotto } from '../types'
     import { eventBus } from '../event-bus'
+    import Arrow from '../component/Arrow.vue'
 
     export default defineComponent({
         data() {
             return {
                 datiProd: [] as Prodotto []
             }
+        },components:{
+            Arrow
         },
         methods: {
             getProdotto(){
@@ -51,6 +54,8 @@
                 </div>
             </div>
         </div>
+
+        <Arrow/>
     </div>
 </template>
 

@@ -2,6 +2,7 @@
     import { defineComponent } from 'vue'
     import axios from "axios"
     import { Categoria } from '../types'
+    import Arrow from "../component/Arrow.vue"
 
     export default defineComponent({
         data() {
@@ -9,13 +10,22 @@
                 datiCat: [] as Categoria []
             }
         },
+        components: {
+            Arrow
+        },
         methods: {
             getCategorie(){
                 axios.get("/api/categorie").then(response => this.datiCat = response.data)
             },
             logout(){
                 sessionStorage.clear()
-            }
+            },
+            navigateBack() {
+                this.$router.back();
+            },
+            navigateForward() {
+                this.$router.go(1);
+            },
         },
         mounted() {
             this.getCategorie()
@@ -40,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <button class="btnLogout" @click="logout"><RouterLink style="text-decoration: none; color: white;" :to="'/'">Logout</RouterLink></button>
+        <Arrow/>
     </div>
 </template>
 

@@ -20,10 +20,9 @@ body{
     padding: ($standard-distance*2);
 }
 
-.btnSendCart, .btnLogout{
+.btnSendCart, .btnLogout, .btnNavigation{
     background-color: $danger-details;
-    margin-top: $standard-distance;
-    margin-bottom: $standard-distance;
+    margin: $standard-distance;
 }
 
 .txtEmptyCart{
