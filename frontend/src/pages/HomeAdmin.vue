@@ -38,7 +38,7 @@ export default defineComponent({
 
 <template>
   <div class="container">
-    <h1>Pagina Admin</h1>
+    <h1 class="fw-bold">Pagina Admin</h1>
     <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
     <div class="row">
       <div class="text-center">

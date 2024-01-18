@@ -37,7 +37,7 @@
 
 <template>
     <div class="container">
-        <h1>Ordina quello che vuoi quando vuoi!</h1>
+        <h1 class="fw-bold">Ordina quello che vuoi quando vuoi!</h1>
         <div class="row">
             <div id="card" class="col-sm-4" v-for="categoria in datiCat">
                 <div class="card">

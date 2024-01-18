@@ -26,7 +26,8 @@ export default defineComponent({
 
 
 <template>
-  <Arrow/>
+  <h1 class="fw-bold">Aggiungi un prodotto al menù</h1>
+
   <form class="formProd">
     <!--Select Cat-->
     <div class="form-group form-control-lg ">
@@ -70,6 +71,8 @@ export default defineComponent({
       <button type="submit">Aggiungi</button>
     </div>
   </form>
+
+  <Arrow/>
 </template>
 
 <style lang="scss">

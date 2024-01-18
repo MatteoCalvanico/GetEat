@@ -1,6 +1,6 @@
 <template>
-    <h3>404</h3>
-    <h2>Pagina non trovata</h2>
+    <h3 class="fw-bold">404</h3>
+    <h2 class="fw-bold">Pagina non trovata</h2>
   </template>
   
   <style scoped>

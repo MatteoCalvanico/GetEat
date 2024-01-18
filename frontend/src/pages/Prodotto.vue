@@ -46,7 +46,7 @@
 
 <template>
     <div class="container">
-        <h1>Scegli il tuo prodotto!</h1>
+        <h1 class="fw-bold">Scegli il tuo prodotto!</h1>
 
         <div class="row">
             <a class="btnCart">

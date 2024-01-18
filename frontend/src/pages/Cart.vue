@@ -41,7 +41,7 @@ export default defineComponent({
 
 <template>
     <div class="container">
-      <h1>Controlla il tuo carrello!</h1>
+      <h1 class="fw-bold">Controlla il tuo carrello!</h1>
         <div class="row">
             <div class="text-center">
                 <p class="txtEmptyCart" v-if="cart?.length === 0">Carrello vuoto</p>
