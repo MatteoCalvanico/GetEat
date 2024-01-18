@@ -2,25 +2,76 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Arrow from '../component/Arrow.vue';
+import { Categoria } from '../types';
+import axios from 'axios';
 
 export default defineComponent({
   data() {
     return {
-      
+      categorie: [] as Categoria []
     };
   },components:{
     Arrow
   },
   methods: {
-    
+    getCat(){
+      axios.get("/api/categorie").then(response => this.categorie = response.data)
+    }
   },
   mounted() {
-    
+    this.getCat()
   },
 });
 </script>
 
 
 <template>
-    <Arrow/>
+  <Arrow/>
+  <form>
+    <!--Select Cat-->
+    <div class="form-group form-control-lg ">
+      <label class="form-label">Seleziona la categoria</label>
+      <select class="form-select">
+        <option v-for="cat in categorie">{{ cat.IDcat }}: {{ cat.Nome }}</option>
+      </select>
+    </div>
+    <!--Insert ID-->
+    <div class="form-group form-control-lg">
+      <label class="form-label">Inserisci l'ID</label>
+      <input type="text" class="form-control" placeholder="Es: prod1" required>
+    </div>
+    <!--Insert Nome-->
+    <div class="form-group form-control-lg">
+      <label class="form-label">Inserisci il nome</label>
+      <input type="text" class="form-control" placeholder="Es: Hot Dog" required>
+    </div>
+    <!--Insert Prezzo-->
+    <div class="form-group form-control-lg">
+      <label class="form-label">Inserisci il prezzo</label>
+      <input type="text" class="form-control" placeholder="Es: 10.50$ --> 10.50" required>
+    </div>
+    <!--Insert Sconto-->
+    <div class="form-group form-control-lg">
+      <label class="form-label">Inserisci la percentuale di sconto</label>
+      <input type="text" class="form-control" placeholder="Es: 15% di sconto --> 5.00" value="0.00">
+    </div>
+    <!--Insert Img-->
+    <div class="form-group form-control-lg">
+      <label class="form-label">Scegli l'immagine del prodotto</label>
+      <input type="file" class="form-control" required>
+    </div>
+    <!--Insert Kcal-->
+    <div class="form-group form-control-lg">
+      <label class="form-label">Inserisci le Kcal</label>
+      <input type="text" class="form-control" placeholder="Es: 1000" required>
+    </div>
+    <!--Submit button-->
+    <div class="col-12">
+      <button type="submit">Aggiungi</button>
+    </div>
+  </form>
 </template>
+
+<style lang="scss">
+@import "../scss/styles.scss";
+</style>
