@@ -59,7 +59,7 @@ export default defineComponent({
     <!--Insert Img-->
     <div class="form-group form-control-lg">
       <label class="form-label fw-bold text-muted">Scegli l'immagine del prodotto</label>
-      <input type="file" class="form-control fw-bold text-muted" required>
+      <input type="file" class="form-control fw-bold text-muted" accept="image/*" required>
     </div>
     <!--Insert Kcal-->
     <div class="form-group form-control-lg">
