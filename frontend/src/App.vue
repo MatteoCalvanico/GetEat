@@ -41,7 +41,7 @@ export default defineComponent({
         <div class="row d-flex align-items-center justify-content-center h-100">
           <div class="col-md-6 col-lg-6 col-xl-6 offset-xl-1 text-center">
             <div class="form-outline mb-4">
-              <img src="./assets/logo.png" class="img-fluid" alt="GetEat">
+              <img src="./assets/logo.png" class="img-fluid" id="logo" alt="GetEat">
             </div>
             <RouterView :cart="cart"/> <!--Passiamo il carrello ai componenti che lo userannò-->
           </div>

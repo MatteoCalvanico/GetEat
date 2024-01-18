@@ -16,6 +16,10 @@ body{
     background-color: $background;
 }
 
+#logo{
+    height: 300px;
+}
+
 .btnCart{
     padding: ($standard-distance*2);
 }
