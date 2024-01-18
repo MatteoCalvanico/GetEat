@@ -11,6 +11,7 @@ import Registration from "./pages/Registration.vue"
 
 import Home from "./pages/HomeMenu.vue"
 import HomeAdmin from "./pages/HomeAdmin.vue"
+import AdminMenu from './pages/AdminMenu.vue'
 
 import Prodotto from './pages/Prodotto.vue'
 import Carrello from "./pages/Cart.vue"
@@ -23,6 +24,7 @@ const router: Router = createRouter({
         {path: "/Regitration", component: Registration},
         {path: "/Home", component: Home, meta: {requireLogin: true}},
         {path: "/Admin", component: HomeAdmin, meta: {requireLogin: true}},
+        {path: "/ModMenu", component: AdminMenu, meta: {requireLogin: true}},
         {path: "/Prodotto/:id", component: Prodotto, meta: {requireLogin: true}},
         {path: "/Carrello", component: Carrello, meta: {requireLogin: true}},
         {path: "/:pathMatch(.*)*", component: NotFound }

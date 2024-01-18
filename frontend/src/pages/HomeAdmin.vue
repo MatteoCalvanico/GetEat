@@ -39,7 +39,7 @@ export default defineComponent({
 <template>
   <div class="container">
     <h1>Pagina Admin</h1>
-    <Arrow/>
+    <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
     <div class="row">
       <div class="text-center">
         <ul class="txtOrdini">
@@ -54,6 +54,7 @@ export default defineComponent({
         </ul>
       </div>
     </div>
+    <Arrow/>
   </div>
 </template>
 
