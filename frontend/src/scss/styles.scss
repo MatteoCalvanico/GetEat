@@ -36,7 +36,7 @@ body{
 }
 
 .card{
-    border: $card-border;
+    border: $border;
     height: 100%;
 
     img{
@@ -66,7 +66,7 @@ ul{
     padding: 0%;
 
     li{
-        border: $card-border;
+        border: $border;
         border-radius: $cart-radius;
         margin-bottom: ($standard-distance*2);
         padding: ($standard-distance*2);
@@ -95,4 +95,19 @@ button,#btn{
     padding: $standard-distance $standard-distance;
     display: inline-block;
     text-decoration: $disable;
+}
+
+.formProd{
+    border: $border;
+    border-radius: $cart-radius;
+    padding: $standard-distance;
+    margin-bottom: $standard-distance;
+    background-color: $color-wheat;
+
+    input, select{
+        border: $border;
+        &:hover {
+            background-color: $background;
+        }
+    }
 }

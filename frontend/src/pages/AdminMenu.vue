@@ -27,43 +27,43 @@ export default defineComponent({
 
 <template>
   <Arrow/>
-  <form>
+  <form class="formProd">
     <!--Select Cat-->
     <div class="form-group form-control-lg ">
-      <label class="form-label">Seleziona la categoria</label>
-      <select class="form-select">
-        <option v-for="cat in categorie">{{ cat.IDcat }}: {{ cat.Nome }}</option>
+      <label class="form-label fw-bold text-muted">Seleziona la categoria</label>
+      <select class="form-select fw-bold text-muted">
+        <option class="fw-bold text-muted" v-for="cat in categorie">{{ cat.IDcat }}: {{ cat.Nome }}</option>
       </select>
     </div>
     <!--Insert ID-->
     <div class="form-group form-control-lg">
-      <label class="form-label">Inserisci l'ID</label>
-      <input type="text" class="form-control" placeholder="Es: prod1" required>
+      <label class="form-label fw-bold text-muted">Inserisci l'ID</label>
+      <input type="text" class="form-control fw-bold text-muted" placeholder="Es: prod1" required>
     </div>
     <!--Insert Nome-->
     <div class="form-group form-control-lg">
-      <label class="form-label">Inserisci il nome</label>
-      <input type="text" class="form-control" placeholder="Es: Hot Dog" required>
+      <label class="form-label fw-bold text-muted">Inserisci il nome</label>
+      <input type="text" class="form-control fw-bold text-muted" placeholder="Es: Hot Dog" required>
     </div>
     <!--Insert Prezzo-->
     <div class="form-group form-control-lg">
-      <label class="form-label">Inserisci il prezzo</label>
-      <input type="text" class="form-control" placeholder="Es: 10.50$ --> 10.50" required>
+      <label class="form-label fw-bold text-muted">Inserisci il prezzo</label>
+      <input type="text" class="form-control fw-bold text-muted" placeholder="Es: 10.50$ --> 10.50" required>
     </div>
     <!--Insert Sconto-->
     <div class="form-group form-control-lg">
-      <label class="form-label">Inserisci la percentuale di sconto</label>
-      <input type="text" class="form-control" placeholder="Es: 15% di sconto --> 5.00" value="0.00">
+      <label class="form-label fw-bold text-muted">Inserisci la percentuale di sconto</label>
+      <input type="text" class="form-control fw-bold text-muted" placeholder="Es: 15% di sconto --> 5.00" value="0.00">
     </div>
     <!--Insert Img-->
     <div class="form-group form-control-lg">
-      <label class="form-label">Scegli l'immagine del prodotto</label>
-      <input type="file" class="form-control" required>
+      <label class="form-label fw-bold text-muted">Scegli l'immagine del prodotto</label>
+      <input type="file" class="form-control fw-bold text-muted" required>
     </div>
     <!--Insert Kcal-->
     <div class="form-group form-control-lg">
-      <label class="form-label">Inserisci le Kcal</label>
-      <input type="text" class="form-control" placeholder="Es: 1000" required>
+      <label class="form-label fw-bold text-muted">Inserisci le Kcal</label>
+      <input type="text" class="form-control fw-bold text-muted" placeholder="Es: 1000" required>
     </div>
     <!--Submit button-->
     <div class="col-12">
