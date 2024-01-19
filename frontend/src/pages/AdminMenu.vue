@@ -22,7 +22,7 @@ export default defineComponent({
     };
   },
   props: {
-    cart: Array
+    cart: Array //Inutile, la usiamo per evitare warning
   }
   ,components:{
     Arrow
@@ -60,18 +60,6 @@ export default defineComponent({
       })
       .catch(error => {
         console.error('Errore nella richiesta:', error);
-        if (error.response) {
-          // La richiesta è stata fatta e il server ha risposto con uno stato diverso da 2xx
-          console.error('Dettagli della risposta:', error.response.data);
-          console.error('Codice di stato:', error.response.status);
-          console.error('Intestazioni della risposta:', error.response.headers);
-        } else if (error.request) {
-          // La richiesta è stata fatta ma non è stata ricevuta alcuna risposta
-          console.error('La richiesta è stata fatta, ma non è stata ricevuta alcuna risposta');
-        } else {
-          // Qualcos'altro ha generato un errore
-          console.error('Errore durante la richiesta:', error.message);
-        }
         this.errore = 'Si è verificato un errore durante l\'aggiunta del prodotto.';
       });
     }
