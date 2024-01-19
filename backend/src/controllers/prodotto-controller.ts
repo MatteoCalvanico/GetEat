@@ -15,21 +15,22 @@ export async function prodFromCat(req:Request, res: Response) {
 
 export async function addProd(req: Request, res: Response) {
   console.log(req.body)
-  const { id, nome, prezzo, sconto, kcal, categoria } = req.body;
-  const categoryId = categoria.IDcat;
 
-  //Controllo immagine presente
+  const { id, nome, prezzo, sconto, kcal, categoria } = req.body;
+  const categoryId = categoria.IDcat; //Ci serve solo l'ID della categoria
+
+  //Controllo se immagine presente
   if (!req.file) {
     return res.status(400).send("Il campo 'immagine' è richiesto.");
   }
 
-  // Gestione del file immagine
-  const immagine = req.file; 
+  //Gestione del file immagine
+  const immagine = req.file.filename; 
 
   connection.execute(
     `INSERT INTO Prodotto (IDprod, Nome, Prezzo, Sconto, Img, Kcal, Categoria)
      VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [id, nome, prezzo, sconto, immagine.filename, kcal, categoryId],
+    [id, nome, prezzo, sconto, immagine, kcal, categoryId],
     function (err, results, fields) {
       if (err) {
         console.error(err);
