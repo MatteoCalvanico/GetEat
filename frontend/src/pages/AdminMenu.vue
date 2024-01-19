@@ -10,7 +10,7 @@ export default defineComponent({
     return {
       categorie: [] as Categoria [],
       formData: {
-        categoria: '',
+        categoria: { IDcat: '', Nome: '' } as Categoria,
         id: '',
         nome: '',
         prezzo: '',
@@ -29,9 +29,17 @@ export default defineComponent({
     },
     addProdotto() {
     const formData = new FormData();
+    
+    const selectedCategoryId = this.formData.categoria.IDcat;
+    formData.append('categoria', selectedCategoryId);
+
     for (const key in this.formData) {
-      formData.append(key, (this.formData as Record<string, any>)[key]);
-    }
+      if (key !== 'categoria') {
+        formData.append(key, (this.formData as Record<string, any>)[key]);
+      }
+   }
+
+
 
     axios.post("/api/addProdotto", formData)
     .then(_response => {
@@ -72,8 +80,8 @@ export default defineComponent({
     <!--Select Cat-->
     <div class="form-group form-control-lg ">
       <label class="form-label fw-bold text-muted">Seleziona la categoria</label>
-      <select class="form-select fw-bold text-muted">
-        <option class="fw-bold text-muted" v-for="cat in categorie">{{ cat.IDcat }}: {{ cat.Nome }}</option>
+      <select class="form-select fw-bold text-muted"  v-model="formData.categoria">
+        <option class="fw-bold text-muted" v-for="cat in categorie" :value="cat">{{ cat.IDcat }}: {{ cat.Nome }}</option>
       </select>
     </div>
     <!--Insert ID-->

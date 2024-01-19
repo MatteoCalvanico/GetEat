@@ -15,6 +15,7 @@ export async function prodFromCat(req:Request, res: Response) {
 
 export async function addProd(req: Request, res: Response) {
   const { id, nome, prezzo, sconto, kcal, categoria } = req.body;
+  const categoryId = categoria.IDcat;
 
   //Controllo immagine presente
   if (!req.file) {
@@ -27,7 +28,7 @@ export async function addProd(req: Request, res: Response) {
   connection.execute(
     `INSERT INTO Prodotto (IDprod, Nome, Prezzo, Sconto, Img, Kcal, Categoria)
      VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [id, nome, prezzo, sconto, immagine.filename, kcal, categoria],
+    [id, nome, prezzo, sconto, immagine.filename, kcal, categoryId],
     function (err, results, fields) {
       if (err) {
         console.error(err);
