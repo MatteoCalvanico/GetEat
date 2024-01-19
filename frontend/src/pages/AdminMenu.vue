@@ -20,7 +20,11 @@ export default defineComponent({
         },
       errore: ''
     };
-  },components:{
+  },
+  props: {
+    cart: Array
+  }
+  ,components:{
     Arrow
   },
   methods: {
@@ -43,7 +47,7 @@ export default defineComponent({
       formData.append('nome', this.form.nome);
       formData.append('prezzo', this.form.prezzo);
       formData.append('sconto', this.form.sconto);
-      if(this.form.immagine) { formData.append('immagine', this.form.immagine); }
+      if(this.form.immagine) { formData.append('immagine', this.form.immagine, this.form.immagine.name); }
       formData.append('kcal', this.form.kcal);
 
       axios.post("/api/addProdotto", formData, {
