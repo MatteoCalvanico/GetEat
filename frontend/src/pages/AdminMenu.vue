@@ -31,6 +31,8 @@ export default defineComponent({
       const file = (event.target as HTMLInputElement).files?.[0];
       if (file) {
         this.form.immagine = file;
+      }else{
+        this.form.immagine = null;
       }
     },
     addProdotto() {
@@ -41,6 +43,7 @@ export default defineComponent({
       formData.append('nome', this.form.nome);
       formData.append('prezzo', this.form.prezzo);
       formData.append('sconto', this.form.sconto);
+      if(this.form.immagine) { formData.append('immagine', this.form.immagine); }
       formData.append('kcal', this.form.kcal);
 
       axios.post("/api/addProdotto", formData, {

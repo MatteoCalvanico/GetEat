@@ -14,6 +14,7 @@ export async function prodFromCat(req:Request, res: Response) {
 }
 
 export async function addProd(req: Request, res: Response) {
+  console.log(req.body)
   const { id, nome, prezzo, sconto, kcal, categoria } = req.body;
   const categoryId = categoria.IDcat;
 
