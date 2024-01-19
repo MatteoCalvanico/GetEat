@@ -2,13 +2,23 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Arrow from '../component/Arrow.vue';
-import { Categoria } from '../types';
+import { Categoria} from '../types';
 import axios from 'axios';
 
 export default defineComponent({
   data() {
     return {
-      categorie: [] as Categoria []
+      categorie: [] as Categoria [],
+      formData: {
+        categoria: '',
+        id: '',
+        nome: '',
+        prezzo: '',
+        sconto: '0.00',
+        immagine: null,
+        kcal: '',
+        },
+      errore: ''
     };
   },components:{
     Arrow
@@ -16,8 +26,38 @@ export default defineComponent({
   methods: {
     getCat(){
       axios.get("/api/categorie").then(response => this.categorie = response.data)
+    },
+    addProdotto() {
+    const formData = new FormData();
+    for (const key in this.formData) {
+      formData.append(key, (this.formData as Record<string, any>)[key]);
     }
-  },
+
+    axios.post("/api/addProdotto", formData)
+    .then(_response => {
+      this.errore = 'Prodotto aggiunto';
+    })
+    .catch(error => {
+      console.error('Errore nella richiesta:', error);
+
+      if (error.response) {
+        // La richiesta è stata fatta e il server ha risposto con uno stato diverso da 2xx
+        console.error('Dettagli della risposta:', error.response.data);
+        console.error('Codice di stato:', error.response.status);
+        console.error('Intestazioni della risposta:', error.response.headers);
+      } else if (error.request) {
+        // La richiesta è stata fatta ma non è stata ricevuta alcuna risposta
+        console.error('La richiesta è stata fatta, ma non è stata ricevuta alcuna risposta');
+      } else {
+        // Qualcos'altro ha generato un errore
+        console.error('Errore durante la richiesta:', error.message);
+      }
+
+      this.errore = 'Si è verificato un errore durante l\'aggiunta del prodotto.';
+    });
+}
+
+    },
   mounted() {
     this.getCat()
   },
@@ -28,7 +68,7 @@ export default defineComponent({
 <template>
   <h1 class="fw-bold">Aggiungi un prodotto al menù</h1>
 
-  <form class="formProd">
+  <form class="formProd" enctype="multipart/form-data" @submit.prevent="addProdotto">
     <!--Select Cat-->
     <div class="form-group form-control-lg ">
       <label class="form-label fw-bold text-muted">Seleziona la categoria</label>
@@ -59,7 +99,7 @@ export default defineComponent({
     <!--Insert Img-->
     <div class="form-group form-control-lg">
       <label class="form-label fw-bold text-muted">Scegli l'immagine del prodotto</label>
-      <input type="file" class="form-control fw-bold text-muted" accept="image/*" required>
+      <input type="file" class="form-control fw-bold text-muted" accept="image/*" name="immagine" required>
     </div>
     <!--Insert Kcal-->
     <div class="form-group form-control-lg">
@@ -69,6 +109,7 @@ export default defineComponent({
     <!--Submit button-->
     <div class="col-12">
       <button type="submit">Aggiungi</button>
+      <p v-if="errore" class="text-danger">{{ errore }}</p>
     </div>
   </form>
 
