@@ -17,6 +17,6 @@ export interface Prodotto {
 
 export interface Ordine {
     IDordine: string
-    NomeOrdinatario: string
+    NomeOrdinante: string
     NomeProdotto: string
 }

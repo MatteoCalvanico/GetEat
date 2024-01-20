@@ -16,6 +16,7 @@ export default defineComponent({
     getOrdini() {
       axios.get('/api/ordini').then((response) => {
         this.datiOrdini = this.groupByOrderID(response.data);
+        console.log(this.datiOrdini)
       });
     },
     groupByOrderID(ordini: Ordine[]){
@@ -44,7 +45,7 @@ export default defineComponent({
       <div class="text-center">
         <ul class="txtOrdini">
           <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine">
-            ID: {{ ordGroup[0].IDordine }}
+            Ordinatario: {{ ordGroup[0].NomeOrdinante }}
             <ul>
               <li v-for="ordine in ordGroup" :key="ordine.IDordine">
                 {{ ordine.NomeProdotto }}
