@@ -21,5 +21,6 @@ const router: Router = Router();
 
 router.get("/api/prodotto/:id", prodController.prodFromCat);
 router.post("/api/addProdotto", upload.single('immagine'), prodController.addProd); //Middleware di caricamento file per gestire l'immagine nel form
+router.delete("/api/delProdotto", prodController.delProd)
 
 export default router;
