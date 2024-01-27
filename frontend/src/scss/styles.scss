@@ -24,7 +24,7 @@ body{
     padding: ($standard-distance*2);
 }
 
-.btnSendCart, .btnLogout, .btnNavigation{
+.btnSendCart, .btnLogout, .btnNavigation, .btnDel{
     background-color: $danger-details;
     margin: $standard-distance;
 }

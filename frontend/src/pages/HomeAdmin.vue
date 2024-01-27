@@ -38,6 +38,11 @@ export default defineComponent({
         OrdGroupBy[key].push(ordine); //Assocciamo l'ordine attuale alla chiave giusta
       });
       return Object.values(OrdGroupBy); //Ritorniamo un array di ordini (v-for non funziona altrimento)
+    },
+    deleteOrder(ordineID: string){
+      axios.delete('/api/cancellaOrdine/' + ordineID).then(() => {
+        this.getOrdini() //Ri-scarichiamo tutti gli ordini
+      })
     }
   },
   mounted() {
@@ -50,22 +55,21 @@ export default defineComponent({
   <div class="container">
     <h1 class="fw-bold">Pagina Admin</h1>
     <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
-    <div class="row fw-bold text-muted">
-      <div>
+      <div class="row fw-bold text-muted">
         <ul>
-          <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine">
+          <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine" class="d-flex flex-column">
             Ordinatario: {{ ordGroup[0].NomeOrdinante }}
             <ul>
-              <li class=" adminLi" v-for="ordine in ordGroup" :key="ordine.IDordine">
+              <li class="adminLi" v-for="ordine in ordGroup" :key="ordine.IDordine">
                 <img :src="'/img/' + ordine.Img" alt="" class="imgLi">
                 {{ ordine.NomeProdotto }}
               </li>
             </ul>
             Prezzo totale: {{ costiOrdini[ordGroup[0].IDordine] }}
+            <button class="btnDel" @click="deleteOrder(ordGroup[0].IDordine)">Elimina</button>
           </li>
         </ul>
       </div>
-    </div>
     <Arrow/>
   </div>
 </template>

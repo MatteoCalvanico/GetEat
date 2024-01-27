@@ -29,6 +29,42 @@ export async function orderPrice(req:Request, res:Response) {
     )
 }
 
+export async function deleteOrder(req: Request, res: Response) {
+    try {
+      const ordineID = req.params.ordineID;
+  
+      if (!ordineID) {
+        return res.status(400).json({ error: "ID ordine mancante." });
+      }
+
+      connection.execute(
+        "DELETE FROM Menu WHERE NumOrdine = ?;",
+        [ordineID],
+        function (err, result, fields) {
+          if (err) {
+            res.status(500).json({ error: 'Cancellazione elementi ordine non riuscita, errore:' + err });
+          } else {
+            connection.execute(
+              "DELETE FROM Ordine WHERE IDordine = ?;",
+              [ordineID],
+              function (err, result, fields) {
+                if (err) {
+                  res.status(500).json({ error: 'Cancellazione ordine non riuscita, errore:' + err });
+                } else {
+                  res.status(200).json({ message: "Ordine cancellato con successo!" });
+                }
+              }
+            );
+          }
+        }
+      );
+  
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Errore durante la cancellazione dell'ordine." });
+    }
+  }
+  
 //Per l'implementazione del checkout facciamo un ciclo che aggiunge INSERT per quanti prodotti abbiamo nel carrello
 export async function checkout(req: Request, res: Response) {
     try {
