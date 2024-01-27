@@ -65,8 +65,14 @@ body{
     flex-direction: column;
 }
 
-.imgLi{
-    width: 30%;
+.adminLi{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    img{
+        width: 40%;
+    }
 }
 
 ul{
@@ -86,7 +92,7 @@ ul{
         background-color: $color-wheat;
 
         img{
-            width: 100px;
+            width: 40%;
             height: auto;
             border-radius: $cart-radius;
         }

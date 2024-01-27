@@ -38,7 +38,7 @@ export default defineComponent({
   <main>
     <section class="vh-100 d-flex align-items-center justify-content-center">
       <div class="container py-5 h-100">
-        <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="row d-flex justify-content-center h-100">
           <div class="col-md-10 col-lg-10 col-xl-10 text-center">
             <div class="form-outline mb-4">
               <img src="./assets/logo.png" class="img-fluid" id="logo" alt="GetEat">
