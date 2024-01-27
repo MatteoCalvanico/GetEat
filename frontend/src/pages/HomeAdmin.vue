@@ -50,8 +50,8 @@ export default defineComponent({
   <div class="container">
     <h1 class="fw-bold">Pagina Admin</h1>
     <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
-    <div class="row">
-      <div class="text-center">
+    <div class="row fw-bold text-muted">
+      <div>
         <ul class="txtOrdini">
           <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine">
             Ordinatario: {{ ordGroup[0].NomeOrdinante }}
