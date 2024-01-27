@@ -15,6 +15,20 @@ export async function allOrder(req:Request, res:Response) {
     )
 }
 
+export async function orderPrice(req:Request, res:Response) {
+    connection.execute(
+        `SELECT Ordine.IDordine, SUM(Prodotto.Prezzo) AS CostoTotale
+        FROM Ordine JOIN Utente ON Ordine.Ordinatario = Utente.ID
+        JOIN Menu ON Ordine.IDordine = Menu.NumOrdine 
+        JOIN Prodotto ON Menu.Prodotto = Prodotto.IDprod
+        GROUP BY Ordine.IDordine, Utente.Username;`,
+        [],
+        function(err, result, fields) {
+            res.json(result)
+        }
+    )
+}
+
 //Per l'implementazione del checkout facciamo un ciclo che aggiunge INSERT per quanti prodotti abbiamo nel carrello
 export async function checkout(req: Request, res: Response) {
     try {
