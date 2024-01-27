@@ -19,4 +19,5 @@ export interface Ordine {
     IDordine: string
     NomeOrdinante: string
     NomeProdotto: string
+    costoTotale: number
 }

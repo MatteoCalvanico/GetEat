@@ -8,6 +8,7 @@ export default defineComponent({
   data() {
     return {
       datiOrdini: [] as Ordine[][],
+      costiOrdini: {} as Record<string, number>
     };
   },components:{
     Arrow
@@ -17,6 +18,14 @@ export default defineComponent({
       axios.get('/api/ordini').then((response) => {
         this.datiOrdini = this.groupByOrderID(response.data);
         console.log(this.datiOrdini)
+      });
+
+      axios.get('/api/costoOrdini').then((response) => {
+        const costiOrdini = response.data.reduce((acc: Record<string, number>, ordine: any) => {
+          acc[ordine.IDordine] = ordine.CostoTotale;
+          return acc;
+        }, {});
+        this.costiOrdini = costiOrdini;
       });
     },
     groupByOrderID(ordini: Ordine[]){
@@ -51,6 +60,7 @@ export default defineComponent({
                 {{ ordine.NomeProdotto }}
               </li>
             </ul>
+            Prezzo totale: {{ costiOrdini[ordGroup[0].IDordine] }}
           </li>
         </ul>
       </div>
