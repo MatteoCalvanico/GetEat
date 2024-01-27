@@ -7,7 +7,7 @@
 ## Idea:
 > Creare un applicativo web che simuli l’ordinazione di cibi e 
 > bevande per clienti di un ristorante e la possibilità per il 
-> gestore di controllare gli ordini.
+> gestore di visionare/cancellare gli ordini e aggiungere/rimuovere prodotti dal menù.
 
 ## Installazione:
 > 1. Clonare la repository in locale, possibilmente nella cartella htdocs di XAMPP;
@@ -18,7 +18,7 @@
 ## Come funziona:
 > Appena si aprirà il sito sarà possibile fare il login o registrarsi, finchè non si avrà un account non si potrà entrare nel sito. 
 >
-> Con un account admin si potrà accedere alla pagine del gestore dove sarà possibile vedere tutti gli ordini effettuati.
+> Con un account admin si potrà accedere alla pagine del gestore dove sarà possibile vedere tutti gli ordini effettuati e cancellarli. Sempre con l'admin si potrà aggiungere un nuovo prodotto tramite form e cancellarlo tramite menù.
 > Con un account user sarà possibile visualizzare il menù e ordinare (non è possibile prendere più volte lo stesso prodotto), andando nel carrello sarà possibile fare il checkout.
 
 ## Figma flowchart
@@ -37,6 +37,7 @@
 > Nell'App.vue c'è la parte centrale, è presente un listener che aspetta l'evento personalizzato e all'arrivo atraverso un metodo salva effettivamente il prodotto nel carrello. In questo componente ho deciso di usare le Composition API, con la nuova funzione setup() e onMounted utile per registrare l'eventListener appena il componente viene montato.
 >
 > Infine nel componente Cart.vue viene ricevuto il carrello come prop e utilizzerà i metodi specifici per togliere un elemento da esso o per effettuare il checkout (tramite API POST dove il funzionamento è stato spiegato all'inizio).
+>
 
 #### FIlippo Monti
 > Nella fase dell'autenticazione si è creato una pagina di login e di registrazione, consente agli utenti di registrarsi e accedere alla home del sito utilizzando le proprie credenziali. Per garantire la sicurezza delle password, si è usato l'algoritmo di hashing bcrypt. Come sistema di verifica dell'autenticazione abbiamo preferito l'utilizzo del sessionStorage, per evitare una complessità non necessaria, non richiesta nel nostro progetto.
@@ -51,3 +52,13 @@
 > Per il frontend abbiamo usato bootstrap, html e scss per creare le varie pagine, renderle gradevoli alla vista e accessibili, con poi l'aggiunta del router per poterle navigare.
 >
 > Abbiamo collaborato per gestire il login e la protezione delle pagine in caso l'utente non sia loggato, per realizzarlo abbiamo utilizzato il sessionStorage dove salviamo se l'utente ha effettuato l'accesso o meno, e infine con il tasto logout puliamo il sessionStorage e ritorniamo alla pagina di login.
+
+### GetEat REDUX
+> Ora è possibile tramite l'admin visionare meglio e in maniera più completa gli ordini, e all'occorrenza eliminarli.
+> L'admin sarà in grado di aggiungere nuovi prodotti, tramite la libreria multer salviami l'immagine del prodotto nella cartella, e cancellarli; infatti se tramitre il profilo admin si raggiunge la pagine dei prodotti ora al posto del bottono di aggiunta al carrello ci sarà quello di eliminazione dal database (con immagine associata).
+>
+> Ora l'utente avrà un riscontro visivo all'aggiunta nel carrello, infatti il prodotto andrà esaurito.
+>
+> L'aspetto visivo della pagina è stato migliorato diminuendo la grandezza del logo, mettendo meno spazio lateralmente e adattando tutto anche alla visualizzazione desktop.
+> 
+> Infine ora sarà possibile muoversi tra le pagine tramite pulsanti appositi.
