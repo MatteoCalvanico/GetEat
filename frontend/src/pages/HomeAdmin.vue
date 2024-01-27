@@ -53,7 +53,8 @@ export default defineComponent({
 <template>
   <div class="container">
     <h1 class="fw-bold">Pagina Admin</h1>
-    <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
+    <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood" :to="'/ModMenu'">Aggiungi prodotto al menù</RouterLink></button>
+    <button class="btnNavigation"><RouterLink style="text-decoration: none; color: burlywood;" :to="'/Home'">Elimina prodotto dal menù</RouterLink></button>
       <div class="row fw-bold text-muted">
         <p class="txtNoOrder" v-if="datiOrdini?.length === 0">Nessun ordine effettuato</p>
         <ul>

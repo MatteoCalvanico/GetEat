@@ -29,6 +29,11 @@ body{
     margin: $standard-distance;
 }
 
+.btnDelProd{
+    background-color: $danger-details;
+    margin: $standard-distance;
+}
+
 .txtEmptyCart, .txtNoOrder{
     font-size: $font-p-size;
     color: $minor-details;
