@@ -52,11 +52,12 @@ export default defineComponent({
     <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
     <div class="row fw-bold text-muted">
       <div>
-        <ul class="txtOrdini">
+        <ul>
           <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine">
             Ordinatario: {{ ordGroup[0].NomeOrdinante }}
             <ul>
               <li v-for="ordine in ordGroup" :key="ordine.IDordine">
+                <img :src="'/img/' + ordine.Img" alt="" class="imgLi">
                 {{ ordine.NomeProdotto }}
               </li>
             </ul>

@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid'; //Usiamo questa libreria per creare un ID s
 
 export async function allOrder(req:Request, res:Response) {
     connection.execute(
-        `SELECT Ordine.IDordine, Utente.Username AS NomeOrdinante, Prodotto.Nome AS NomeProdotto
+        `SELECT Ordine.IDordine, Utente.Username AS NomeOrdinante, Prodotto.Nome AS NomeProdotto, Prodotto.Img
         FROM Ordine JOIN Utente ON Ordine.Ordinatario = Utente.ID 
         JOIN Menu ON Ordine.IDordine = Menu.NumOrdine 
         JOIN Prodotto ON Menu.Prodotto = Prodotto.IDprod;`,
