@@ -29,7 +29,7 @@ body{
     margin: $standard-distance;
 }
 
-.txtEmptyCart{
+.txtEmptyCart, .txtNoOrder{
     font-size: $font-p-size;
     color: $minor-details;
 }

@@ -17,7 +17,6 @@ export default defineComponent({
     getOrdini() {
       axios.get('/api/ordini').then((response) => {
         this.datiOrdini = this.groupByOrderID(response.data);
-        console.log(this.datiOrdini)
       });
 
       axios.get('/api/costoOrdini').then((response) => {
@@ -56,6 +55,7 @@ export default defineComponent({
     <h1 class="fw-bold">Pagina Admin</h1>
     <button class="btnNavigation"><RouterLink style="text-decoration: none; color:burlywood;" :to="'/ModMenu'">Modifca il menù</RouterLink></button>
       <div class="row fw-bold text-muted">
+        <p class="txtNoOrder" v-if="datiOrdini?.length === 0">Nessun ordine effettuato</p>
         <ul>
           <li v-for="ordGroup in datiOrdini" :key="ordGroup[0].IDordine" class="d-flex flex-column">
             Ordinatario: {{ ordGroup[0].NomeOrdinante }}
