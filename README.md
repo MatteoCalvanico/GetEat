@@ -1,4 +1,6 @@
-# GetEat 
+<p align = "center" >
+    <img src="./frontend/public/logo.png"/>
+</p>
 
 ## Created by:
 > - Matteo Calvanico
